@@ -11,13 +11,14 @@ author_profile: true
 <img style="float: left; margin: 0px 15px 15px 0px;" src="{{site.imgurl}}/headshot.jpg" width="33%" />
 -->
 
-My name is Dylan Paiton and I'm a Postdoctoral Researcher at University of T&uuml;bingen working in
-the [Bethge lab](https://bethgelab.org). I received my PhD in Vision Science from the University
-of California, Berkeley, where I worked at the
-[Redwood Center for Theoretical Neuroscience](http://redwood.berkeley.edu/). Before that I
-was a post-baccalaureate researcher in [Garrett Kenyon's group](http://petavision.github.io/) at
-[Los Alamos National Laboratory](http://lanl.gov/). I received a Bachelor of Science in Electrical
-Engineering with a minor in Optical Sciences from the
+My name is Dylan Paiton and I'm a Postdoctoral Researcher in the
+[Bethge lab](https://bethgelab.org) at the University of T&uuml;bingen.
+I received my PhD in Vision Science from the University of California, Berkeley, where I
+worked at the [Redwood Center for Theoretical Neuroscience](http://redwood.berkeley.edu/).
+Before that I was a post-baccalaureate researcher in
+[Garrett Kenyon's group](http://petavision.github.io/) at
+[Los Alamos National Laboratory](https://youtu.be/55hlnlVuTpk). I received a Bachelor of Science
+degree in Electrical Engineering with a minor in Optical Sciences from the
 [New Mexico Institute of Mining and Technology](https://www.nmt.edu/academics/eleceng/).
 
 I grew up in central [New Mexico](https://explorepartsunknown.com/destination/new-mexico/), in a
