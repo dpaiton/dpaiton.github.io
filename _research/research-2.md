@@ -19,7 +19,8 @@ Most recently, I lead a team to conduct a research project on understanding dise
 neural networks. The goal of disentanglment research is to learn an encoding function that can map
 inputs, such as images or videos, to the underlying factors that varied to produce those images,
 such as an object's position, identity, or orientation. We used neural networks that approximate
-probabilistic inference to encode the images. You can read more about it in
+probabilistic inference to encode the images. You can find a short description with figures in our
+[tweet](https://twitter.com/bethgelab/status/1285944029084037121?s=20) or get all of the deatils in
 [the paper](https://openreview.net/forum?id=EbIDjBynYJ8).
 
 <strong>A nonlinear, hierarchical subspace sparse coding network</strong><br>
