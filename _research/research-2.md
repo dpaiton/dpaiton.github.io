@@ -1,6 +1,6 @@
 ---
 title: "Hierarchical models of natural scenes"
-excerpt: "A candidate for biological scene representation<br/>
+excerpt: "Proposing candidate models for biological scene representation<br/>
 <img src='/images/subspace_lca.png'
     width=400 />"
 collection: portfolio
