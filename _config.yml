@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Dylan Paiton"
   avatar           : "headshot.jpg"
-  bio              : "Scientist studying how we see the world."
+  bio              : "I am a scientist studying how we see the world."
   location         : "T&uuml;bingen, Germany"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
@@ -101,7 +101,7 @@ author:
   keybase          :
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
-  lastfm           : "https://www.last.fm/user/dpaiton"
+  lastfm           : "dpaiton"
   linkedin         : "https://www.linkedin.com/in/dpaiton/"
   orcid            : #"http://orcid.org/yourorcidurl"
   pinterest        :
