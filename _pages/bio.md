@@ -1,11 +1,15 @@
 ---
 layout: archive
-title: About Me
+title: "About Me"
 permalink: /bio/
 author_profile: true
 ---
 
+{% include base_path %}
+
+<!---
 <img style="float: left; margin: 0px 15px 15px 0px;" src="{{site.imgurl}}/headshot.jpg" width="33%" />
+-->
 
 My name is Dylan Paiton and I'm a Postdoctoral Researcher at University of T&uuml;bingen working in
 the [Bethge lab](https://bethgelab.org)
