@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: archive
 title: About Me
-permalink: /about/
+permalink: /bio/
+author_profile: true
 ---
 
 <img style="float: left; margin: 0px 15px 15px 0px;" src="{{site.imgurl}}/headshot.jpg" width="33%" />
