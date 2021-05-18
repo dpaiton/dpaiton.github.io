@@ -6,8 +6,9 @@ excerpt: "Understanding neural computation using differential geometry<br/>
 collection: portfolio
 ---
 
-Individual neurons in the brain perform computations on their inputs to produce outputs. For example,
-in the late 1950s, [Hubel and Wiesel](https://youtu.be/IOHayh06LJ4) discovered cat neurons that respond
+Individual neurons in the brain perform computations on their inputs to produce outputs. We first
+learned this in the late 1950s, when Nobel prize winners
+[Hubel and Wiesel](https://youtu.be/IOHayh06LJ4) discovered cat neurons that respond
 selectively to moving edges. My research looks at how the neuron response changes as one smoothly
 modulates the input signal. When we do this, the neuron response maps out a surface that has curvature.
 This curvature can help us describe properties about the computation that the neuron is performing.
