@@ -9,10 +9,10 @@ collection: portfolio
 A long-standing interest of mine is to develop hierarchical probablistic models of natural scenes.
 While representing real-world scenes in terms of true probabilities is a mathematician's
 nightmare, approximating such a representation has proven to be an extremely effective way to
-model scenes in an efficient and robust way, and so far has shown a high degree of correspondence
-to what we see in real brains.
-Most of my works so far have built on the Sparse Coding framework, which represents a leading
-candidate for computation in the early vision system of primates.
+model scenes in an efficient and robust way.
+Perhaps just as importantly, so far it has shown a high degree of correspondence with what we see
+in real brains. Most of my works so far have built on the Sparse Coding framework,
+which represents a leading candidate for computation in the early vision system of primates.
 
 Most recently, I lead a team to conduct a research project on understanding disentanglement in
 neural networks. The goal of disentanglment research is to learn an encoding function that can map
