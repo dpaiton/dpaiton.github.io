@@ -1,7 +1,15 @@
 ---
-title: "Portfolio item number 1"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+title: "Artificial Neuron Response Geometry"
+excerpt: "Understanding neural computation using differential geometry<br/><img src='/images/contours_and_gradients.png'>"
 collection: portfolio
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+My primary PhD research topic was to use a method from experimental neuroscience to characterize
+selectivity and adversarial robustness properties of a recurrent neural network implementation of
+the sparse coding algorithm. My work demonstrated that we can use a geometric meeasure,
+namely the curvature, of the high-dimensional response surface to explain these properties.
+
+You can check out [my blogpost]({{site.url}}/posts/2021-05-18-selectivity-robustness) on the topic for a high-level
+overview, or read [the paper](https://jov.arvojournals.org/article.aspx?articleid=2772000) for the
+details.
+

@@ -12,13 +12,9 @@ author_profile: true
 -->
 
 My name is Dylan Paiton and I'm a Postdoctoral Researcher at University of T&uuml;bingen working in
-the [Bethge lab](https://bethgelab.org)
-
-My research interest is focused on understanding biological vision, with a particular focus on
-probabilistic models of natural scenes.
-
-I received my PhD in Vision Science from the University of California, Berkeley, where I worked at
-the [Redwood Center for Theoretical Neuroscience](http://redwood.berkeley.edu/). Before that I
+the [Bethge lab](https://bethgelab.org). I received my PhD in Vision Science from the University
+of California, Berkeley, where I worked at the
+[Redwood Center for Theoretical Neuroscience](http://redwood.berkeley.edu/). Before that I
 was a post-baccalaureate researcher in [Garrett Kenyon's group](http://petavision.github.io/) at
 [Los Alamos National Laboratory](http://lanl.gov/). I received a Bachelor of Science in Electrical
 Engineering with a minor in Optical Sciences from the
@@ -31,7 +27,9 @@ town called Rio Rancho and attended high school at the
 Check out an overview of [my research interests](../research)
 or some blogposts about my [published papers](../blog)!
 
-Here is a short bio for talks:
+<br>
+<strong>Here is a short bio for talks:</strong>
+<br>
 Dylan received his Bachelor of Science degree in Electrical Engineering from the New Mexico
 Institute of Mining and Technology. He then worked as a post-baccalaureate researcher in Garrett
 Kenyon's group at Los Alamos National Lab, where he studied biophysical retina models and
