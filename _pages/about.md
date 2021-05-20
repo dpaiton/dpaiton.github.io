@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Dylan Paiton's personal website"
+title: "Welcome! Please, make yourself at home."
 excerpt: "Welcome"
 author_profile: true
 redirect_from: 
@@ -8,6 +8,6 @@ redirect_from:
   - /about.html
 ---
 
-Welcome to my personal website!
+There's beer in the fridge.
 
 <img style="float: center; margin: 0px 15px 15px 0px;" src="{{site.imgurl}}/family.jpeg" width="33%" />
