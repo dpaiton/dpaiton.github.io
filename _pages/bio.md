@@ -35,10 +35,9 @@ Dylan received his Bachelor of Science degree in Electrical Engineering from the
 Institute of Mining and Technology. He then worked as a post-baccalaureate researcher in Garrett
 Kenyon's group at Los Alamos National Lab, where he studied biophysical retina models and
 hierarchical sparse coding networks. He obtained his PhD in Vision Science from the University of
-California, Berkeley under the advisement of Bruno Olshausen. His PhD thesis was on developing an
-analysis technique to explain selectivity and robustness properties of neural networks. He is
-currently a postdoctoral researcher in Matthias Bethge's lab at the University of Tübingen.
-His primary research is developing a method for discovering novel modes of invariance and
+California, Berkeley under the advisement of Bruno Olshausen. For his PhD thesis he developed an
+analysis technique to explain selectivity and robustness properties of a sparse coding neural
+network. He is currently a postdoctoral researcher in Matthias Bethge's lab at the University of
+Tübingen. Here he is extending his PhD thesis work to discovering novel modes of invariance and
 selectivity in biological neurons. He is also supervising students working in the fields of
 disentanglement and adversarial robustness.
-
