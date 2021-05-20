@@ -30,7 +30,7 @@ Kenyon's group at Los Alamos National Lab, where he studied biophysical retina m
 hierarchical sparse coding networks. He obtained his PhD in Vision Science from the University of
 California, Berkeley under the advisement of Bruno Olshausen. For his PhD thesis he developed an
 analysis technique to explain selectivity and robustness properties of a sparse coding neural
-network. He is currently a postdoctoral researcher in Matthias Bethge's lab at the University of
-Tübingen. Here he is extending his PhD thesis work to discovering novel modes of invariance and
+network. Currently, he is a postdoctoral researcher in Matthias Bethge's lab at the University of
+Tübingen. He is extending his PhD thesis work to discover novel modes of invariance and
 selectivity in biological neurons. He is also supervising students working in the fields of
 disentanglement and adversarial robustness.
