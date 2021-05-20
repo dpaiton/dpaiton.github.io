@@ -15,11 +15,16 @@ Before that I was a post-baccalaureate researcher in
 [Garrett Kenyon's group](http://petavision.github.io/) at
 [Los Alamos National Laboratory](https://youtu.be/55hlnlVuTpk). I received a Bachelor of Science
 degree in Electrical Engineering with a minor in Optical Sciences from the
-[New Mexico Institute of Mining and Technology](https://www.nmt.edu/academics/eleceng/).
-
-I was born in Maine, USA, and lived there until I was 10. The rest of my adolescence was spent in
+[New Mexico Institute of Mining and Technology](https://www.nmt.edu/academics/eleceng/). I was born
+in Maine, USA, and lived there until I was 10. The rest of my adolescence was spent in
 Rio Rancho, a town in central [New Mexico, USA](https://explorepartsunknown.com/destination/new-mexico/).
 I graduated from Rio Rancho High School in 2007.
+
+When I'm not working I love playing outside, especially ultimate frisbee, disc golf, snowboarding,
+and hiking. I am also a gamer; I frequently play all sorts of games, from videogames to tabletop.
+And these things are always most fun when done with my partner, Christine, and our two dogs
+[Barley](https://www.instagram.com/barleythedogg/)
+and [Ramsey](https://www.instagram.com/ramseythepup/).
 
 <br>
 <strong>Here is a short bio for talks:</strong>
