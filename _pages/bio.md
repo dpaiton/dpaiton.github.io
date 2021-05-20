@@ -8,7 +8,7 @@ author_profile: true
 {% include base_path %}
 
 My name is Dylan Paiton and I'm a Postdoctoral Researcher in the
-[Bethge lab](https://bethgelab.org) at the University of T&uuml;bingen.
+[Bethge lab](https://bethgelab.org) at the University of T&uuml;bingen in Germany.
 I received my PhD in Vision Science from the University of California, Berkeley, where I
 worked at the [Redwood Center for Theoretical Neuroscience](http://redwood.berkeley.edu/).
 Before that I was a post-baccalaureate researcher in
