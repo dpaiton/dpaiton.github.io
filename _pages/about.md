@@ -9,3 +9,5 @@ redirect_from:
 ---
 
 Welcome to my personal website!
+
+<img style="float: center; margin: 0px 15px 15px 0px;" src="{{site.imgurl}}/family.jpeg" width="33%" />

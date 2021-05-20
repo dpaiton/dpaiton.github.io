@@ -7,10 +7,6 @@ author_profile: true
 
 {% include base_path %}
 
-<!---
-<img style="float: left; margin: 0px 15px 15px 0px;" src="{{site.imgurl}}/headshot.jpg" width="33%" />
--->
-
 My name is Dylan Paiton and I'm a Postdoctoral Researcher in the
 [Bethge lab](https://bethgelab.org) at the University of T&uuml;bingen.
 I received my PhD in Vision Science from the University of California, Berkeley, where I
@@ -21,12 +17,9 @@ Before that I was a post-baccalaureate researcher in
 degree in Electrical Engineering with a minor in Optical Sciences from the
 [New Mexico Institute of Mining and Technology](https://www.nmt.edu/academics/eleceng/).
 
-I grew up in central [New Mexico](https://explorepartsunknown.com/destination/new-mexico/), in a
-town called Rio Rancho and attended high school at the
-[Rio Rancho High School](https://rioranchohigh.rrps.net/home), graduating in 2007.
-
-Check out an overview of [my research interests](../research)
-or some blogposts about my [published papers](../blog)!
+I was born in Maine, USA, and lived there until I was 10. The rest of my adolescence was spent in
+Rio Rancho, a town in central [New Mexico, USA](https://explorepartsunknown.com/destination/new-mexico/).
+I graduated from Rio Rancho High School in 2007.
 
 <br>
 <strong>Here is a short bio for talks:</strong>
