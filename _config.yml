@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Academic website for Dylan Paiton"
+title                    : "Home"
 title_separator          : "-"
 name                     : &name "Dylan Paiton"
 description              : &description "(he/him/his)"
