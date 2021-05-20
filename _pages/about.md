@@ -10,4 +10,4 @@ redirect_from:
 
 There's beer in the fridge.
 
-<img style="float: center; margin: 0px 15px 15px 0px;" src="images/family.jpeg" width="33%" />
+<img style="float: center; margin: 0px 15px 15px 0px;" src="images/family.jpeg" width="80%" />
