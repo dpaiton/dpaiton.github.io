@@ -16,7 +16,7 @@ Before that I was a post-baccalaureate researcher in
 [Los Alamos National Laboratory](https://youtu.be/55hlnlVuTpk). I received a Bachelor of Science
 degree in Electrical Engineering with a minor in Optical Sciences from the
 [New Mexico Institute of Mining and Technology](https://www.nmt.edu/academics/eleceng/). I was born
-in Maine, USA, and lived there until I was 10. The rest of my adolescence was spent in
+in [Maine, USA](https://youtu.be/witphg3HUlE), and lived there until I was 10. The rest of my adolescence was spent in
 Rio Rancho, a town in central [New Mexico, USA](https://explorepartsunknown.com/destination/new-mexico/).
 I graduated from Rio Rancho High School in 2007.
 
