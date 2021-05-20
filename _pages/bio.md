@@ -25,12 +25,12 @@ I graduated from Rio Rancho High School in 2007.
 <strong>Here is a short bio for talks:</strong>
 <br>
 Dylan received his Bachelor of Science degree in Electrical Engineering from the New Mexico
-Institute of Mining and Technology. He then worked as a post-baccalaureate researcher in Garrett
+Institute of Mining and Technology. He then worked as a post-baccalaureate researcher in Dr. Garrett
 Kenyon's group at Los Alamos National Lab, where he studied biophysical retina models and
 hierarchical sparse coding networks. He obtained his PhD in Vision Science from the University of
-California, Berkeley under the advisement of Bruno Olshausen. For his PhD thesis he developed an
+California, Berkeley under the advisement of Dr. Bruno Olshausen. For his PhD thesis he developed an
 analysis technique to explain selectivity and robustness properties of a sparse coding neural
-network. Currently, he is a postdoctoral researcher in Matthias Bethge's lab at the University of
-Tübingen. He is extending his PhD thesis work to discover novel modes of invariance and
+network. Currently, he is a postdoctoral researcher in Dr. Matthias Bethge's lab at the University
+of Tübingen. He is extending his PhD thesis work to discover novel modes of invariance and
 selectivity in biological neurons. He is also supervising students working in the fields of
 disentanglement and adversarial robustness.
