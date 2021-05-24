@@ -12,17 +12,25 @@ There's beer in the fridge.
 
 <br><strong>Subspace Locally Competitive Algorithms</strong>,
 presented @ the Neurally Inspired Computational Elements conference.
+
+<p><a href="https://youtu.be/X3TOohLp4jk">
+<img src="http://img.youtube.com/vi/X3TOohLp4jk/maxresdefault.jpg" alt="Dylan Paiton NICE 2021" width="150" height="84">
+</a></p>
+
 <!--http://img.youtube.com/vi/<YouTube_Video_ID_HERE>/maxresdefault.jpg-->
 
+<!--
 <iframe
-    width="222"
+    width="355"
     height="200"
-    src="https://www.youtube-nocookie.com/embed/X3TOohLp4jk&w=222&h=200&origin=https://dpaiton.github.io"
-    title="NICE 2021 Dylan Paiton"
+    src="https://www.youtube-nocookie.com/embed/X3TOohLp4jk?w=355&h=200&origin=https://dpaiton.github.io"
+    title="Dylan Paiton NICE 2021"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen>
 </iframe>
+-->
+
 
 <!--
 srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/X3TOohLp4jk?autoplay=0><img src=https://img.youtube.com/vi/X3TOohLp4jk/hqdefault.jpg alt='Video NICE 2020 - Dylan Paiton'><span>▶</span></a>"
