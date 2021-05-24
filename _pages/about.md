@@ -12,13 +12,15 @@ There's beer in the fridge.
 
 <br><strong>Subspace Locally Competitive Algorithms</strong>,
 presented @ the Neurally Inspired Computational Elements conference.
+<!--http://img.youtube.com/vi/<YouTube_Video_ID_HERE>/maxresdefault.jpg-->
+
 <iframe
     width="222"
     height="200"
-    src="https://www.youtube-nocookie.com/embed/X3TOohLp4jk?controls=0&w=222&h=200&origin=https://dpaiton.github.io"
+    src="https://www.youtube-nocookie.com/embed/X3TOohLp4jk&w=222&h=200&origin=https://dpaiton.github.io"
     title="NICE 2021 Dylan Paiton"
     frameborder="0"
-    allow="accelerometer; modestbranding; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen>
 </iframe>
 
