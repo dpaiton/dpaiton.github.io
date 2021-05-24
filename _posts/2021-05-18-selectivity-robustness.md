@@ -33,8 +33,8 @@ This activity is analogous to an average firing rate of a neuron for a given sti
 {: style="text-align: center"}
 
 **Fig. 1** Deep neural networks are composed of pointwise-nonlinear neurons. On the left is a schematic
-diagram of such a neuron, where the input stimulus, S, is multiplied by the neuron weights, $$\Phi$$,
-summed in the cell body, and finally passed through a nonlinearity to give an activity, a. On the right
+diagram of such a neuron, where the input stimulus, $$S$$, is multiplied by the neuron weights, $$\Phi$$,
+summed in the cell body, and finally passed through a nonlinearity to give an activity, $$a$$. On the right
 is a large number of these neurons assembled into a fully-connected neural network.
 {: style="text-align: center"}
 
@@ -50,8 +50,8 @@ For this work, we focused on the lateral connections in the primary visual corte
 {: style="text-align: center"}
 
 **Fig. 2** On the left is an example of two neurons that are connected to eachother laterally.
-On the right is a brain schematic that illustrates the visual information pathway that we will be
-focusing on.
+On the right is a brain schematic that illustrates the visual information pathway that we will focus
+on.
 {: style="text-align: center"}
 
 V1 has a layered structure, where different depths have different types of neurons that respond
@@ -70,22 +70,23 @@ are performed in each layer.
 
 For this work I will be addressing the question of "how do population interactions resulting from
 lateral connections influence the information processing capabilities of model neurons?"
-To better understand what I mean, lets look at this figure from Yulin Shi's lab at UC Irvine.
+To better understand what I mean, lets look at this figure from
+[Yulin Shi's](https://scholar.google.com/citations?user=TklQqcsAAAAJ) lab at UC Irvine.
 
 ![slide-4]
 {: style="text-align: center"}
 
 **Fig. 4**
-On the right is a figure from a paper by Xiangmin Xu et al., but modified by me to add the black squares.
-Notice how the layers are highly interconnected, with recurrent loops occuring among all layers.
-The black squares outline the specific connection type that I will be discussing in this post.
-To make the figure, they conducted a quantitative assessment of excitatory and inhibitory connections
-to excitatory neurons in mouse V1. The thickness of the line indicates the strength of the connection.
-For you aficionados out there, Xu et al. did functional mapping assays using a combination two
-techniques. First, slice imaging with ultraviolet stimuli to cause fluorescence and second,
-morphological examination using DAPI staining, which binds strongly to adenine–thymine rich
-regions in DNA. From this they were able to assess connection strengths for a large number of
-excitatory and inhibitory neurons.
+On the right is a figure from a paper by [Xiangmin Xu et al.](https://doi.org/10.1113/JP271891),
+but modified by me to add the black squares. Notice how the layers are highly interconnected, with
+recurrent loops occuring among all layers. The black squares outline the specific connection type
+that I will be discussing in this post. To make the figure, they conducted a quantitative
+assessment of excitatory and inhibitory connections to excitatory neurons in mouse V1. The
+thickness of the line indicates the strength of the connection. For you aficionados out there,
+Xu et al. did functional mapping assays using a combination two[techniques. First, slice imaging
+with ultraviolet stimuli to cause fluorescence and second, morphological examination using DAPI
+staining, which binds strongly to adenine–thymine rich regions in DNA. From this they were able
+to assess connection strengths for a large number of excitatory and inhibitory neurons.
 {: style="text-align: center"}
 
 I really like this figure because it is easy see that the layers are highly interconnected. Lateral
@@ -385,7 +386,7 @@ neuron they can be different. One way to see this is to measure each curvature t
 number of planes. In the next figure, each subplot is a histogram of the measured iso-response and
 response attenuation curvatures. We measured the curvature in 100 randomly selected neurons and 600
 orthogonal planes per neuron. For all planes the horizontal axis is always the target neuron’s
-weight vector, $$phi_{k}$$. We then repeated this process for three neural networks that had
+weight vector, $$\Phi_{k}$$. We then repeated this process for three neural networks that had
 different levels of [overcompleteness](https://en.wikipedia.org/wiki/Overcompleteness), which is
 the ratio of neurons to pixels. In total, we presented 162 million images to the networks to assess
 the response curvature. For a given plane, the curvature is the second order coefficient in a
