@@ -7,7 +7,7 @@ author_profile: true
 
 {% include base_path %}
 
-<img style="float: center; margin: 0px 15px 15px 0px;" src="/images/family.jpeg" width="80%" />
+<img style="float: center; margin: 0px 15px 15px 0px;" src="../images/family.jpeg" width="80%" />
 
 <strong>Education: </strong>I am currently a Postdoctoral Researcher in the
 [Bethge lab](https://bethgelab.org) at the University of T&uuml;bingen in Germany.
