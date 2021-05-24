@@ -25,7 +25,7 @@ I graduated from Rio Rancho High School in 2007.
 
 <strong>Interests</strong><br>
 When I'm not working I love playing outside, especially ultimate frisbee, disc golf, snowboarding,
-and hiking. I am also a gamer; I frequently play all sorts of games, from videogames to tabletop.
+and hiking. I am also a gamer; I play all sorts of games, from videogames to tabletop.
 And these things are always most fun when done with my partner, Christine, and our two dogs
 [Barley](https://www.instagram.com/barleythedogg/)
 and [Ramsey](https://www.instagram.com/ramseythepup/).
