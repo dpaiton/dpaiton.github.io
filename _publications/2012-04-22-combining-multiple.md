@@ -1,11 +1,10 @@
 ---
 title: "Combining multiple visual processing streams for locating and classifying objects in video"
 collection: publications
-permalink: /publication/2012-05-21-combining-multiple
+permalink: /publication/2012-04-22-combining-multiple
 excerpt: 'Labeling videos with objects using independent color/texture and shape/form processing streams.'
-date: 2012-05-21
+date: 2012-04-22
 venue: 'IEEE Southwest Symposium on Image Analysis and Interpretation'
-paperurl: 'https://ieeexplore.ieee.org/abstract/document/6202450'
 ---
 
 [Paper link](https://ieeexplore.ieee.org/abstract/document/6202450)
