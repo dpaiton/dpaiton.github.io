@@ -10,4 +10,11 @@ redirect_from:
 
 There's beer in the fridge.
 
-<img style="float: center; margin: 0px 15px 15px 0px;" src="images/family.jpeg" width="80%" />
+<iframe width="420" height="315"
+src="https://www.youtube.com/embed/X3TOohLp4jk">
+</iframe>
+
+<iframe width="420" height="315"
+src="https://www.youtube.com/embed/h9SYmFTrW8U">
+</iframe>
+
