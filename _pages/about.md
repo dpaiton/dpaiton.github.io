@@ -20,9 +20,9 @@ presented @ the Neurally Inspired Computational Elements conference.
 </iframe>
 -->
 
-<div style="position:absolute">
-  <img src="https://img.youtube.com/vi/X3TOohLp4jk/hqdefault.jpg" style="position:absolute; width=150; height=84"/>
-  <img src="images/youtube-overlay-image.png" style="position:absolute; width=150; height=84"/>
+<div style="position:relative; width=150; height=84">
+  <img src="https://img.youtube.com/vi/X3TOohLp4jk/hqdefault.jpg" style="position:absolute"/>
+  <img src="images/youtube-overlay-image.png" style="position:absolute"/>
 </div>
 
 <!--
