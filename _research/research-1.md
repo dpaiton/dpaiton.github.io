@@ -24,6 +24,6 @@ the curvature of neurons in an artificial neural network. My work allowed us to 
 understanding of selectivity and adversarial robustness properties of the network.
 
 You can check out the [tweet](https://twitter.com/DylanPaiton/status/1333480509893206018?s=20)
-for a super short description, [my blogpost]({{site.url}}/posts/2021-05-18-selectivity-robustness)
+for a super short description, [my blogpost]({{site.url}}/posts/2021/05/selectivity-robustness/)
 high-level overview, or read [the paper](https://jov.arvojournals.org/article.aspx?articleid=2772000)
 for the details.

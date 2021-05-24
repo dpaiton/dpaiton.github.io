@@ -16,7 +16,8 @@ Dylan M Paiton
 ------
 
 {: style="text-align: left"}
-[Paper details](/publication/2020-11-02-selectivity-and)
+[paper details](/publication/2020-11-02-selectivity-and)
+& [tweet thread](https://twitter.com/DylanPaiton/status/1333480509893206018?s=20)
 
 ### Why are real neurons recurrent?
 Typical DNN architectures utilize pointwise nonlinear neurons, where a linear operation is followed
@@ -48,8 +49,9 @@ For this work, we focused on the lateral connections in the primary visual corte
 ![slide-2]
 {: style="text-align: center"}
 
-**Fig. 2** On the left is an example of two neurons that are connected to eachother <id>laterally</it>.
-On the right is a brain schematic that illustrates the visual information pathway that we will be focusing on.
+**Fig. 2** On the left is an example of two neurons that are connected to eachother laterally.
+On the right is a brain schematic that illustrates the visual information pathway that we will be
+focusing on.
 {: style="text-align: center"}
 
 V1 has a layered structure, where different depths have different types of neurons that respond
@@ -125,8 +127,8 @@ The network on the right is a recurrent network that includes latral connectivit
 architecture is qutie similar to that on the left, with only the addition of lateral connections, G.
 In order to utilize the lateral connections, the network processes inputs iteratively through time,
 where the output of the neurons at one time step is fed in as input in the next. This network was
-originally published by Rozell et al. in 2008, and it solves a family of
-<it>Locally Competitive Altorithms</it> (LCAs).
+originally published by Rozell et al. in 2008, and it solves a family of _Locally Competitive
+Altorithms_ (LCAs).
 {: style="text-align: center"}
 
 This network adds the lateral connectivity matrix, G, to the pointwise-nonlinear version. G is assigned
@@ -170,7 +172,7 @@ in increased selectivity and robustness.
 
 ### Neuron response geometry
 To understand the difference between these two circuits we are going to measure the response surface
-geometry of individual (artificial) neurons. We will define the <it>target neuron</it> as the neuron
+geometry of individual (artificial) neurons. We will define the _target neuron_ as the neuron
 that we are currently interested in studying, and we will often indiciate it mathematically with the
 index k. In order to do measure the target neuron's response surface, we first need to construct a
 stimulus set. Our stimulus set must be composed of images that are interesting to the neurons that
@@ -251,7 +253,7 @@ nonlinear neuron:
 {: style="text-align: center"}
 
 **Fig. 12**
-The iso-response contours for a pointwise nonlinear neuron are <it>still</it> straight & orthogonal
+The iso-response contours for a pointwise nonlinear neuron are _still_ straight & orthogonal
 to the neuron's feedforward weight vector. The nonlinearity can only change the spacing of the lines.
 {: style="text-align: center"}
 
@@ -273,7 +275,7 @@ network types.
 {: style="text-align: center"}
 
 This population nonlinear setup allows the neurons to perform more complicated (i.e. less linear)
-operations on the input, which results in a <it>bending</it> of the iso-response contours. The
+operations on the input, which results in a _bending_ of the iso-response contours. The
 bending comes directly from the lateral interaction term in the update equation.
 
 ![slide-14]
@@ -301,7 +303,7 @@ for a given plane.
 {: style="text-align: center"}
 
 Notice from Figure 15 that the iso-response contours are always
-bent away from the origin. This is called <it>exo-origin curavture</it>, and indicates selectivity,
+bent away from the origin. This is called _exo-origin curavture_, and indicates selectivity,
 which I'll explain later. First, if you're interested, you can look at the math to get a better idea
 for what is going on here:
 
@@ -343,7 +345,7 @@ Again lets consider the pointwise nonlinear neuron. What happens to the output i
 point on the $$\Phi$$ axis and then our input along the orthogonal $$\nu$$ direction? Nothing.
 As expected, the response is flat. However, for our population nonlinear network, the exo-origin
 curvature results in a decrease in output, $$a_{k}$$, as we increase our perturbation in the $$\nu$$
-direction. We call this <it>response attenuation</it>. This means the neuron is selective against
+direction. We call this _response attenuation_. This means the neuron is selective against
 orthogonal perturbations. In other words, our target neuron’s output contains more information
 about how close the stimulus is to its weight vector. If that is not immediately intuitive to you,
 take a second to let it sink in. This is important if we consider what the “weight vector” means in
@@ -492,7 +494,7 @@ feedforward weights than linear neurons.
 
 In the experiment for figure 26, we computed the activation of an LCA neuron for 100,000 natural
 stimuli. We then filtered for all of the stimuli that achieved at least 50% of the maximum activation
-of the neuron. These are considered <it>interesting images</it>. Next we compute the angle between
+of the neuron. These are considered _interesting images_. Next we compute the angle between
 these highly-activating stimuli and the neuron’s receptive field, where a lower angle means the
 stimuli is more similar to the receptive field. Finally, we repeat this process for a linear neuron
 with the exact same receptive field. The top plots show that the average number of
@@ -518,7 +520,7 @@ Adversarial examples.
 {: style="text-align: center"}
 
 In the deep learning literature, the middle column image in Figure 26 are called
-<it>adversarial examples</it> and represent one of a large set of [known failures of modern
+_adversarial examples_ and represent one of a large set of [known failures of modern
 artificial neural networks](https://www.nytimes.com/2018/11/05/opinion/artificial-intelligence-machine-learning.html).
 They are small (often invisible to a person) perturbations in the input space can result in totally
 different labels in the output space. In this section I will show you how these adversarial attacks
