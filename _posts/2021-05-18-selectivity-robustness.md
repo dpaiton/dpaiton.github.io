@@ -555,12 +555,80 @@ such that the attacks will have to be larger in magnitude to achieve similar adv
 and they will point in directions that are more in line with the network’s preferred input
 directions.
 
+To scale up the previous experiment, we swapped out the first layer in a standard classifier with
+an LCA layer. We then trained them on the MNIST dataset and looked at trajectories of adversarial
+attacks. We tested variations of the dataset, the number of neurons in the first ($$a$$) layer, and
+the depth of the classifier. Here are schematics for the two neteworks:
+
+![slide-30]
+{: style="text-align: center"}
+
+**fig. 29**
+On the left we show a standard feedforward network for classification. On the right we show the same
+network, but where we swapped out the first layer with an LCA layer. We changed the number of neurons
+in the first layer for both network types, and we also changed the classifier to be one or two layers.
+{: style="text-align: center"}
+
+We performed an unbounded, confidence based atack. This means that we iteratively perturbed the input
+image until the classifier is 90% confident in the adversarial label. At this time we stop the
+attack and measure the [mean squared distance, (MSD)](https://en.wikipedia.org/wiki/Mean_squared_error)
+between the original image and the perturbed image. Here's the result:
+
+![slide-31]
+{: style="text-align: center"}
+
+**fig. 30**
+LCA protects against traditional adversarial attacks. The horizontal axis indicates different
+experiments, and the vertical axis indicates the perturbation size required to convince the classifier
+in the adversarial label.
+{: style="text-align: center"}
+
+In addition to requiring a larger MSD, LCA qualitatively influences the perturbations. We can see
+that the perturbation clearly moves towards the target class.
+
+We can test the predictions of our smaller-scale experiment in figure 28 by projexcting one of the
+attack trajectories into an image plane that was spanned by two LCA weight vectors chosen to have
+semantic similarity to the original image label and the adversarial target label. Here's what that
+looked like:
+
+![slide-32]
+{: style="text-align: center"}
+
+**fig. 31**
+LCA protects against traditional adversarial attacks. The horizontal axis indicates different
+experiments, and the vertical axis indicates the perturbation size required to convince the classifier
+in the adversarial label. The neuron’s weight vectors are displayed as images along with the input
+image, a 1, and the final attack output, which resembles the final classification output, a 3. PGD
+stands for "Projected Gradient Descent", which is the type of adversarial attack that was used.
+{: style="text-align: center"}
+
+We found that the predictions made with the small-scale model appear to play out on the larger scale.
+Notice that the final adversarial image looks more like the “3” basis vector after the attack. We
+also tested the network on CIFAR:
+
+![slide-33]
+{: style="text-align: center"}
+
+**fig. 32**
+LCA adversarial experiments on the CIFAR natural images dataset.
+{: style="text-align: center"}
+
+LCA seems to do better overall on CIFAR, but the effect is much less convincing. Looking at the
+perturbations themselves, you can see a clear impact but the complexity of the data makes the
+category relevance unclear. Our hypothesis is that the strength of the effect will be determined by
+the ability of the LCA neurons to effectively span the high-density regions of the data distribution
+and the extent to which the actual target of the attack relies on the activation of any given
+neuron or set of neurons being maximized. In other words, more overcompleteness should help and a
+single LCA layer will not be as effective when paired with deeper classifiers or more complicated
+datasets. We believe this begs for the development of deeper generative architectures with
+population non-linearities.
 
 
+To conclude, I want to ackowledge my co-authors, without whom this work never would have been
+possible. I also thank the funding sources that allowed for this work to be computed:
 
-
-
-
+![slide-34]
+{: style="text-align: center"}
 
 
 [slide-1]: /images/selectivity-robustness/slide-1.png
@@ -585,3 +653,15 @@ directions.
 [slide-20]: /images/selectivity-robustness/slide-20.png
 [slide-21]: /images/selectivity-robustness/slide-21.png
 [slide-22]: /images/selectivity-robustness/slide-22.png
+[slide-23]: /images/selectivity-robustness/slide-23.png
+[slide-24]: /images/selectivity-robustness/slide-24.png
+[slide-25]: /images/selectivity-robustness/slide-25.png
+[slide-26]: /images/selectivity-robustness/slide-26.png
+[slide-27]: /images/selectivity-robustness/slide-27.png
+[slide-28]: /images/selectivity-robustness/slide-28.png
+[slide-29]: /images/selectivity-robustness/slide-29.png
+[slide-30]: /images/selectivity-robustness/slide-30.png
+[slide-31]: /images/selectivity-robustness/slide-31.png
+[slide-32]: /images/selectivity-robustness/slide-32.png
+[slide-33]: /images/selectivity-robustness/slide-33.png
+[slide-34]: /images/selectivity-robustness/slide-34.png

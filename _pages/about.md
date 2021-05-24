@@ -11,6 +11,8 @@ redirect_from:
   - /about.html
 ---
 
+**THIS PAGE IS UNDER CONSTRUCTION.**
+
 The following are recordings of talks I have given on my work.
 
 <br><strong>Subspace Locally Competitive Algorithms</strong><br>
