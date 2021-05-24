@@ -9,7 +9,8 @@ author_profile: true
 
 <img style="float: center; margin: 0px 15px 15px 0px;" src="../images/family.jpeg" width="80%" />
 
-<strong>Education: </strong>I am currently a Postdoctoral Researcher in the
+<strong>Education</strong><br>
+I am currently a Postdoctoral Researcher in the
 [Bethge lab](https://bethgelab.org) at the University of T&uuml;bingen in Germany.
 I received my PhD in Vision Science from the University of California, Berkeley, where I
 worked at the [Redwood Center for Theoretical Neuroscience](http://redwood.berkeley.edu/).
@@ -22,7 +23,8 @@ in [Maine, USA](https://youtu.be/witphg3HUlE), and lived there until I was 10. T
 Rio Rancho, a town in central [New Mexico, USA](https://explorepartsunknown.com/destination/new-mexico/).
 I graduated from Rio Rancho High School in 2007.
 
-<strong>Interests: </strong>When I'm not working I love playing outside, especially ultimate frisbee, disc golf, snowboarding,
+<strong>Interests</strong><br>
+When I'm not working I love playing outside, especially ultimate frisbee, disc golf, snowboarding,
 and hiking. I am also a gamer; I frequently play all sorts of games, from videogames to tabletop.
 And these things are always most fun when done with my partner, Christine, and our two dogs
 [Barley](https://www.instagram.com/barleythedogg/)
