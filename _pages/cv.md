@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-A PDf of my full CV can be found here: [cv]
+A PDf of my full CV can be found [here](/files/paiton-cv.pdf).
 
 Education
 ======
