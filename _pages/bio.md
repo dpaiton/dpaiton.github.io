@@ -15,7 +15,7 @@ I am currently a Postdoctoral Researcher in the
 I received my PhD in Vision Science from the University of California, Berkeley, where I
 worked at the [Redwood Center for Theoretical Neuroscience](http://redwood.berkeley.edu/).
 Before that I was a post-baccalaureate researcher in
-[Garrett Kenyon's group](http://petavision.github.io/) at
+[Gar Kenyon's group](http://petavision.github.io/) at
 [Los Alamos National Laboratory](https://youtu.be/55hlnlVuTpk). I received a Bachelor of Science
 degree in Electrical Engineering with a minor in Optical Sciences from the
 [New Mexico Institute of Mining and Technology](https://www.nmt.edu/academics/eleceng/). I was born
