@@ -1,34 +1,49 @@
 ---
 permalink: /
-title: "Welcome! Please, make yourself at home."
+title: "Welcome!"
 excerpt: "Welcome"
 author_profile: true
+header:
+    image: cajal-glial-cerebral.jpeg
+    caption: "Santiago Ramón y Cajal, glial cells of the cerebral cortex of a child, 1904, ink and pencil on paper.<br>[Courtesy of the Cajal Institute, Spanish National Research Council, or CSIC. Madrid. Spain.](https://www.csic.es/)"
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-There's beer in the fridge.
+The following are recordings of talks I have given on my work.
 
-<br><strong>Subspace Locally Competitive Algorithms</strong>,
+<br><strong>Subspace Locally Competitive Algorithms</strong><br>
 presented @ the Neurally Inspired Computational Elements conference.
+<iframe
+src="https://www.youtube-nocookie.com/embed/X3TOohLp4jk">
+</iframe>
 
 <!--
-<iframe
-<a href=https://youtu.be/X3TOohLp4jk>
+<p><a href=https://youtu.be/X3TOohLp4jk class="linkwrap">
+<iframe 
 <img src=https://img.youtube.com/vi/X3TOohLp4jk/hqdefault.jpg alt='Video Dylan Paiton NICE 2021'>
-</iframe>
+</iframe></a></p>
 -->
 
-<div style="position:relative; width=150; height=84">
-  <img src="https://img.youtube.com/vi/X3TOohLp4jk/hqdefault.jpg" style="position:absolute"/>
-  <img src="images/youtube-overlay-image.png" style="position:absolute"/>
-</div>
+<!--
+<p>
+<a href="https://youtu.be/X3TOohLp4jk">
+<div style="position:absolute; width=150; height=84">
+  <img src="https://img.youtube.com/vi/X3TOohLp4jk/hqdefault.jpg" style="position:absolute">
+  <img src="images/youtube-overlay-image.png" style="position:absolute">
+</div></a></p>
+-->
 
 <!--
-<p><a href="https://youtu.be/X3TOohLp4jk">
-<img src="http://img.youtube.com/vi/X3TOohLp4jk/maxresdefault.jpg" alt="Dylan Paiton NICE 2021" width="150" height="84">
-</a></p>
+<p>
+<a href="https://youtu.be/X3TOohLp4jk">
+<div class="container" style="position:absolute; width=150; height=84">
+<img src="https://img.youtube.com/vi/X3TOohLp4jk/hqdefault.jpg" alt="Dylan Paiton NICE 2021" style="width=150; height=84; position:absolute">
+<img src="images/youtube-overlay-image.png" style="position:absolute">
+</div>
+</a>
+</p>
 -->
 
 <!--http://img.youtube.com/vi/<YouTube_Video_ID_HERE>/maxresdefault.jpg-->
@@ -45,14 +60,12 @@ presented @ the Neurally Inspired Computational Elements conference.
 </iframe>
 -->
 
-
 <!--
 srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/X3TOohLp4jk?autoplay=0><img src=https://img.youtube.com/vi/X3TOohLp4jk/hqdefault.jpg alt='Video NICE 2020 - Dylan Paiton'><span>▶</span></a>"
 -->
 
-<br><strong>Towards Nonlinear Disentanglement in Natural Data with Temporal Sparse Coding</strong>,
+<br><strong>Towards Nonlinear Disentanglement in Natural Data with Temporal Sparse Coding</strong>,<br>
 presented @ the Weights & Biases salon.
-<iframe width="177" height="100"
-src="https://www.youtube.com/embed/h9SYmFTrW8U">
+<iframe
+src="https://www.youtube-nocookie.com/embed/h9SYmFTrW8U">
 </iframe>
-
