@@ -1,6 +1,6 @@
 ---
 title: 'Selectivity and robustness of sparse coding networks'
-date: 2021-05-24
+date: 2199-05-24
 permalink: /posts/2021/05/selectivity-robustness/
 tags:
   - response geometry
