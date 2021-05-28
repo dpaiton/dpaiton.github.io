@@ -19,10 +19,10 @@ In such a world, images of vertical edges would occur when a column of 1s immedi
 To encode such a world, our brain might want to have a 'vertical edge detector' neuron that signals the presence of any vertical edges.
 This means we want our neuron to be _selective_ for the presence of an vertical edge, as opposed to other orientations, but _invariant_ to the phase of the edge, i.e. whether it is 0s followed by 1s or the other way around.
 In neuroscience, such a neuron is called a complex cell, and is a standard basic cell type.
-It was precisely the discovery of analogous neuron types in the visual cortex of cats that lead scientists to hypothesize that the brain is wired up to perform _computations_ on signals coming from the world.
-This discovery occured in the late 1950s, and about twenty years later a scientist named Dr. Kunihiko Fukushima proposed one of the earliest ancestors of the modern day deep neural network, called the neocognitron.
+It was precisely the [discovery](https://www.brains-explained.com/how-hubel-and-wiesel-revolutionized-neuroscience/) of analogous neuron types in the visual cortex of cats that lead scientists to hypothesize that the brain is wired up to perform _computations_ on signals coming from the world.
+This discovery occured in the late 1950s, and about twenty years later a scientist named Dr. Kunihiko Fukushima proposed one of the earliest ancestors of the modern day deep neural network, called the [neocognitron](http://www.scholarpedia.org/article/Neocognitron).
 One of the defining elements of the neocognitron were "C-cells", which were designed to be selective for features in the world, but invariant to their position.
-In modern artificial neural networks, we often label neurons by what they are most selective for, such as snout detectors, and we explicitly engineer components that create invariance, such as pooling to create invariance to position.
+In modern artificial neural networks, we often label neurons by what they are most selective for, such as [snout detectors](https://distill.pub/2017/feature-visualization/), and we explicitly engineer components that create invariance, such as [pooling](https://ai.plainenglish.io/pooling-layer-beginner-to-intermediate-fa0dbdce80eb) to create invariance to position.
 Today scientists have a variety of methods to measure and quantify selectivity and invariance in both biological as well as artificial neurons.
 These measurements are extremely important, and are often used to categorize neurons into certain groups.
 This blog post aims to explain one such method, which is currently primarily used in neuroscience and relies on characterizing the geometry of a neuron's _response surface_.
