@@ -8,9 +8,6 @@ tags:
   - deep net interpretability
 ---
 
-Understanding neurons using their response geometry
-======
-
 Dylan M Paiton
 ------
 
