@@ -221,7 +221,7 @@ For now, the big takeaways are:
 - linear and pointwise nonlinear neurons have flat iso-response contours, regardless of the nonlinearity used
 - outward-curved contours indicate selectivity, and the amount of curvature will tell us how selective the neuron is
 - inward-curved contours indicate invariance, which is a property of biological complex cells
-For more published scientific articles on this topic, I recommend reading [my own paper](/publication/2020-11-02-selectivity-and), as well as the work of [James Golden et al.](http://jamesgolden.net/wp-content/uploads/2017/10/golden_vilankar_wu_field_conjectures_nonlinear_geometry_vision_research_2016_preprint.pdf), which was published in the journal _Vision Research_ in 2016.
+For more published scientific articles on this topic, I recommend reading [my own paper](/publication/2020-11-02-selectivity-and), as well as the work of [James Golden et al. (PDF)](http://jamesgolden.net/wp-content/uploads/2017/10/golden_vilankar_wu_field_conjectures_nonlinear_geometry_vision_research_2016_preprint.pdf).
 
 [2d-plane]: /images/response-geometry/2d-plane.png
 [points-to-images]: /images/response-geometry/points-to-images.png
@@ -229,5 +229,6 @@ For more published scientific articles on this topic, I recommend reading [my ow
 [linear-contours]: /images/response-geometry/linear-contours.png
 [pointwise-neurons]: /images/response-geometry/pointwise-neurons.png
 [onions]: /images/response-geometry/onions.png
+[perturbation-directions]: /images/response-geometry/perturbation-directions.png
 [up-perturbation]: /images/response-geometry/up-perturbation.png
 [contour-perturbation]: /images/response-geometry/contour-perturbation.png
