@@ -11,6 +11,8 @@ tags:
 Dylan M Paiton
 ------
 
+![curvatures]
+
 ### Neuron selectivity and invariance
 An important computational goal of the early visual pathway, from the retina to the primary visual cortex (V1), is to produce a representation of visual features that are useful for downstream tasks, like navigating the world and identifying objects.
 In order for a V1 neuron’s output to be decoded by downstream brain areas, it must reliably modulate its response with respect to certain variations in the visual world and remain constant for others.
@@ -61,7 +63,7 @@ Just to really drive this idea home -- every single point in the 100-dimensional
 The next figure has an illustration of a 3D image space with such a 2D cross section drawn in light grey.
 
 ![2d-plane]
-{: style="text-align: center"}
+{: style="text-align: center; font-size:11pt"}
 
 **fig. 2**
 Images are high-dimensional points.
@@ -69,7 +71,7 @@ In this illustration, each yellow axis represents the value of a pixel for a thr
 The grey sheet represents a plane, or cross section.
 The purple and blue arrows are vectors that define the plane.
 The red arrow points in the remaining direction, which is perpendicular to the plane.
-{: style="text-align: center"}
+{: style="text-align: center; font-size:11pt"}
 
 Here's a roadmap of what is to come:
 To explore the response geometry of our target neuron, we will first take a two-dimensional cross section of the high-dimensional input space.
@@ -87,14 +89,14 @@ For any given cross section, all of the images are [coplanar](https://en.wikiped
 
 
 ![points-to-images]
-{: style="text-align: center"}
+{: style="text-align: center; font-size:11pt"}
 
 **fig. 3**
 We discretize an image cross section into a two-dimensional grid and collect the points to define a dataset
 of images.
-The black arrows are perpendicular (i.e. orthogonal) vectors that define the plane.
+The black arrows are perpendicular (i.e. _orthogonal_) vectors that define the plane.
 The origin for all of the planes we consider here will be a zero-contrast image, in other words a uniform gray image.
-{: style="text-align: center"}
+{: style="text-align: center; font-size:11pt"}
 
 In addition to constraining our input space to be coplanar, we are also going to constrain our output space to simplify the analysis.
 Specifically, we are going to look at the curvature of the _iso-response contours_ of the neuron.
@@ -108,26 +110,26 @@ Going forward, we will represent the MEI with the symbol $$\Phi_{k}$$ (read: [ph
 For now lets just assume that the other axis is any random orthogonal image, but we will change that later.
 
 ![choosing-the-right-plane]
-{: style="text-align: center"}
+{: style="text-align: center; font-size:11pt"}
 
 **fig. 4**
-The horizontal axis for an image plane is always defined to be the target neuron's maximally exciting image, or MEI.
-{: style="text-align: center"}
+The horizontal axis for an image plane is always the target neuron's maximally exciting image, or MEI.
+{: style="text-align: center; font-size:11pt"}
 
 ### Plotting the contours
 We can now color the points according to the neuron’s activity, $$a_{k}$$.
-Finding the iso-response contours is easy, we just collect the output values into a fixed number of bins and then the bin boundaries will lie along iso-response contours.
+Visualizing the iso-response contours is easy, we just collect the output values into a fixed number of bins and then the bin boundaries will lie along iso-response contours.
 Here's what it would look like for a simple linear neuron:
 
 ![linear-contours]
-{: style="text-align: center"}
+{: style="text-align: center; font-size:11pt"}
 
 **fig. 5**
 The iso-response contours for a linear neuron are straight and orthogonal to the neuron's MEI, $$\Phi_{k}$$.
 In this image, $$\Phi_{j}$$ indicates the MEI for some other neuron and $$\nu$$ indicates the chosen orthogonal axis.
 The iso-response contours will be straight regardless of the chosen direction for $$\nu$$.
 The color indicates the output activity of neuron $$k$$, where blue is low and yellow is high.
-{: style="text-align: center"}
+{: style="text-align: center; font-size:11pt"}
 
 Notice how the lines are straight and orthogonal to $$\Phi_{k}$$.
 This will be true for any linear system, and it means that the neuron is insensitive to orthogonal perturbations away from it's preferred input.
@@ -136,12 +138,12 @@ This is exactly the type of operation that is uesd in almost all standard deep n
 For example, in the next figure we include the _Rectified Linear Unit (ReLU)_ nonlinearity, which sets all values below some threshold to zero and then acts as an identity mapping (i.e. input equals output) for all values above that same threshold.
 
 ![pointwise-neurons]
-{: style="text-align: center"}
+{: style="text-align: center; font-size:11pt"}
 
 **fig. 6**
 The iso-response contours for a pointwise nonlinear neuron are still straight & orthogonal to the neuron's MEI.
 The nonlinearity can only change the spacing of the lines, or set values to zero.
-{: style="text-align: center"}
+{: style="text-align: center; font-size:11pt"}
 
 We can see that the iso-response contours are still straight.
 This is because the nonlinearity is applied after the linear operation, and so the nonlinearity can only change the spacing
@@ -151,26 +153,25 @@ This is true for all types of pointwise nonlinearities, which we demonstrate by 
 ### Straight vs. curved contours
 Other types of artificial neurons, as well as biological neurons, tend to have more complicated iso-response contours.
 Specifically, they tend to have _curvature_ in the sense that they bend towards or away from the origin.
-Since linear neurons produce straight contours, it is reasonable to think about curvature as indicating a deviation from linearity -- more curvy contours indicate less linear input-output functions.
+Since linear neurons produce straight contours, it is reasonable to think about curvature as indicating a deviation from linearity -- more curvy contours indicate less linear functions.
 Additionally, lets differentiate between outward curvature, which means it's bending away from the origin, and inward curvature, which means it is bending towards the origin.
-The curvature is significant because it tells us specifically about neuron selectivity and invariance.
-To understand that better, lets consider a few different types of coplanar perturbations that we can make to an input image.
-
-Lets choose somewhere along the horizontal axis as a starting point and list some options for perturbation directions:
-- Right, towards the neuron's MEI, then the neuron's activity will grow
-- Left, away from the neuron's MEI, then the neuron's activity will shrink
-- Up, orthogonal to the neuron's MEI, then the neuron's activity will change differently for each type
-- Along the iso-response contour, then the neuron's acitvity will not change
+One reason curvature is significant is because it tells us about what variations in the world the neuron is selective for and invariant against.
+To understand that better, let's consider a few different types of coplanar perturbations that we can make from an input image.
+Here is a list of some options for a starting image along the horizontal axis:
+- Right, towards the neuron's MEI, then the target neuron's activity will grow
+- Left, away from the neuron's MEI, then the target neuron's activity will shrink
+- Up, orthogonal to the neuron's MEI, then the target neuron's activity will change differently for each curvature type
+- Along the iso-response contour, then the target neuron's acitvity will not change
 
 ![perturbation-directions]
-{: style="text-align: center"}
+{: style="text-align: center; font-size:11pt"}
 
 **fig. 7**
-Visualizations of four out of many possible simple pertubation directions.
+Visualizations of four out of many possible pertubation directions.
 For each direction, assume we start with the image depicted by the square, then perturb to the pentagon, then again to the circle.
 Straight contours are indicated in shades of purple, outward bending in shades of red, and inward bending in shades of blue.
 Darker colors indicate higher neural activation.
-{: style="text-align: center"}
+{: style="text-align: center; font-size:11pt"}
 
 For linear neuron & pointwise nonlienar neurons, the last two directions are equal.
 But they are not equal for neurons with bent iso-response contours.
@@ -178,23 +179,26 @@ What does this tell us?
 Lets look at one in particular to start, the 'up' perturbation for straight and outward bending contours.
 
 ![up-perturbation]
-{: style="text-align: center"}
+{: style="text-align: center; font-size:11pt"}
 
 **fig. 8**
 The 'up' perturbation direction reveals an important difference between neurons with straight contours and neurons with outward curved contours.
-{: style="text-align: center"}
+The line plot on the right indicates the response of the neuron (vertical axis) for each image type (horizontal axis).
+{: style="text-align: center; font-size:11pt"}
 
 Again lets consider the pointwise nonlinear neuron.
 What happens to the output if we take a fixed point on the $$\Phi_{k}$$ axis and then perturb orthognally in the up direction?
 Nothing; as expected, the response is flat.
-However, the other neuron the curvature indicates a decrease in output, $$a_{k}$$, as we increase our perturbation in the $$\nu$$ direction.
+However, the neuron with outward curvature decreases its output, $$a_{k}$$, as we perturb "up" in the $$\nu$$ direction.
 We call this _response attenuation_.
 This means the neuron is selective against orthogonal perturbations away from its preferred stimulus.
 In other words, outward bending contours reveal that the target neuron’s output contains more information about how close the stimulus is to its MEI than straight contours.
+
 This is important if we consider what the "MEI" means.
-In artificial neural networks, we use the "MEI" to label the neuron.
-The biological analog for an "MEI" is the neuron’s receptive field, which neuroscientists also use to label or identify neurons.
-For linear and pointwise nonlinear neurons, we can perturb images along any direction that is orthogonal to the neuron’s preferred stimulus and the response will not change.
+In both studies of artificial neural networks and biology, scientists use MEIs or something similar to label neurons and group them together.
+For example, if the MEI is a vertical edge, then we would label the neuron a "vertical edge detector".
+As we perturb an image away from the MEI axis, it will look less like the MEI and more like the image $$\nu$$.
+For linear and pointwise nonlinear neurons, we can perturb images along any direction that is orthogonal to the neuron’s preferred stimulus as far as we want and the response will not change.
 However, for neurons with outward facing iso-response contour curvature, orthogonal perturbations will result in response attenuation.
 Therefore, the neuron outputs have a higher degree of correspondence to their preferred stimulus label, and thus their output carries more relevant information about the input.
 Another way to say all of this is to say that the outward curvature indicates increased _selectivity_, where the amount of selectivity is proportional to the amount of curvature.
@@ -206,15 +210,15 @@ By definition, since these images lie along the iso-response contour, the output
 This means that the bottom cell has phase _invariance_, while the top cell does not.
 
 ![contour-perturbation]
-{: style="text-align: center"}
+{: style="text-align: center; font-size:11pt"}
 
 **fig. 9**
 The 'contour' perturbation direction reveals an important difference between neurons with straight contours and neurons with inward curved contours.
-The generated images are called _Gabor functions_, and are often used as an analogy for V1 neuron MEIs.
-Images produced along the contour for the top neuron cause an increase in contrast for the orthognal direction.
+The generated images are called _Gabor functions_, and are often used as an approximation of V1 neuron MEIs.
+Images produced along the contour for the top neuron cause the $$\nu$$ component to become more visible and the $$\Phi_{k}$$ component to become less visible.
 In this case, it just looks like darks are getting darker and whites are getting whiter, although if you inspect it carefully you should see that it is not happening equally for all vertical segments.
 However, images that lie along the bottom neuron's contour shift in phase.
-{: style="text-align: center"}
+{: style="text-align: center; font-size:11pt"}
 
 ## Wrap up
 There is much more that we can learn by looking at the curvature of the iso-response surfaces, which I will discuss in upcoming posts.
@@ -225,6 +229,7 @@ For now, the big takeaways are:
 
 For more published scientific articles on this topic, I recommend reading [my own paper](/publication/2020-11-02-selectivity-and), as well as the work of [James Golden et al. (PDF)](http://jamesgolden.net/wp-content/uploads/2017/10/golden_vilankar_wu_field_conjectures_nonlinear_geometry_vision_research_2016_preprint.pdf).
 
+[curvatures]: /images/response-geometry/curvatures.png
 [2d-plane]: /images/response-geometry/2d-plane.png
 [points-to-images]: /images/response-geometry/points-to-images.png
 [choosing-the-right-plane]: /images/response-geometry/choosing-the-right-plane.png
