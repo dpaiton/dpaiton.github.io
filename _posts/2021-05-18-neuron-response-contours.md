@@ -19,6 +19,7 @@ In such a world, images of vertical edges would occur when a column of 1s immedi
 To encode such a world, our brain might want to have a 'vertical edge detector' neuron that signals the presence of any vertical edges.
 This means we want our neuron to be _selective_ for the presence of an vertical edge, as opposed to other orientations, but _invariant_ to the phase of the edge, i.e. whether it is 0s followed by 1s or the other way around.
 In neuroscience, such a neuron is called a complex cell, and is a standard basic cell type.
+
 It was precisely the [discovery](https://www.brains-explained.com/how-hubel-and-wiesel-revolutionized-neuroscience/) of analogous neuron types in the visual cortex of cats that lead scientists to hypothesize that the brain is wired up to perform computations on signals coming from the world.
 This discovery occured in the late 1950s and created a revolution in neuroscience research.
 About twenty years later a scientist named Dr. Kunihiko Fukushima proposed a computer model to emulate the discovered behavior.
@@ -44,11 +45,11 @@ This presents our next challenge, which is choosing how to take a cross section.
 Just like cutting an onion in half, one type of cross section will reveal very different structure from another one.
 
 ![onions]
-{: style="text-align: center"}
+{: style="text-align: center; font-size:11pt"}
 
 **fig. 1**
 Taking cross sections of complicated surfaces can reveal structure, but the structure looks different depending on the orientation of the cross section.
-{: style="text-align: center"}
+{: style="text-align: center; font-size:11pt"}
 
 Instead of input from other neurons, lets consider a neuron that receives image pixels as input and produces a scalar output.
 Individual input images can also be thought of as points in a high dimensional space.
@@ -100,11 +101,10 @@ Specifically, we are going to look at the curvature of the _iso-response contour
 These contours are connected points that are all on the plane and all produce the same output from the neuron.
 To see the iso-response contours, we will compute the neuron’s output (i.e. _activity_) for all of the cross section images and then recolor the points according to the activity.
 
-
 As I said before, we want to pick a plane that is relevant for our neuron.
-To do this we define one of the two plane axes as the neuron's _maximally exciting image (MEI)_, which is an image that was optimize to look like a feature in the world that is most interesting to the neuron.
+To do this we define one of the two plane axes as the neuron's _maximally exciting image (MEI)_, which is an image that was optimized to look like the feature in the world that is most interesting to the neuron.
 There are a lot of ways to find a neuron's MEI in neuroscience and in artificial neural network research, but for now lets leave asside how the image was produced and just assume it is representative of what the neuron likes most.
-Going forward, we will represent the MEI with the symbol $$\Phi_{k}$$, where the $$k$$ tells us it is the MEI for the $$k$$th neuron in our assembly.
+Going forward, we will represent the MEI with the symbol $$\Phi_{k}$$ (read: [phi](https://en.wikipedia.org/wiki/Phi), sounds like "fi" in "financial"), where the $$k$$ tells us it is the MEI for the $$k$$th neuron in our assembly.
 For now lets just assume that the other axis is any random orthogonal image, but we will change that later.
 
 ![choosing-the-right-plane]
@@ -116,22 +116,23 @@ The horizontal axis for an image plane is always defined to be the target neuron
 
 ### Plotting the contours
 We can now color the points according to the neuron’s activity, $$a_{k}$$.
-Finding the iso-response contours is easy, we just collect the output values into a fixed number of bins, and the bin boundaries will lie along iso-response contours.
-Here's what it would look like for a very simple (linear) neuron:
+Finding the iso-response contours is easy, we just collect the output values into a fixed number of bins and then the bin boundaries will lie along iso-response contours.
+Here's what it would look like for a simple linear neuron:
 
 ![linear-contours]
 {: style="text-align: center"}
 
 **fig. 5**
-The iso-response contours for a linear neuron are straight & orthogonal to the neuron's MEI, $$\Phi_{k}$$.
+The iso-response contours for a linear neuron are straight and orthogonal to the neuron's MEI, $$\Phi_{k}$$.
 In this image, $$\Phi_{j}$$ indicates the MEI for some other neuron and $$\nu$$ indicates the chosen orthogonal axis.
 The iso-response contours will be straight regardless of the chosen direction for $$\nu$$.
+The color indicates the output activity of neuron $$k$$, where blue is low and yellow is high.
 {: style="text-align: center"}
 
-Notice how the lines are straight & orthogonal to $$\phi_{k}$$.
+Notice how the lines are straight and orthogonal to $$\Phi_{k}$$.
 This will be true for any linear system, and it means that the neuron is insensitive to orthogonal perturbations away from it's preferred input.
 What happens if we apply a pointwise nonlinearity to our neuron's output?
-This is exactly the type of operation that is uesd in almsot all standard deep neural networks: a linear operation followed by a pointwise nonlinearity.
+This is exactly the type of operation that is uesd in almost all standard deep neural networks: a linear operation followed by a pointwise nonlinearity.
 For example, in the next figure we include the _Rectified Linear Unit (ReLU)_ nonlinearity, which sets all values below some threshold to zero and then acts as an identity mapping (i.e. input equals output) for all values above that same threshold.
 
 ![pointwise-neurons]
@@ -148,9 +149,9 @@ between the lines.
 This is true for all types of pointwise nonlinearities, which we demonstrate by also including a sigmoid nonlinearity.
 
 ### Straight vs. curved contours
-Other types of artificial neurons, as well as biological neurons, tend to have more complicated iso-response contoures.
+Other types of artificial neurons, as well as biological neurons, tend to have more complicated iso-response contours.
 Specifically, they tend to have _curvature_ in the sense that they bend towards or away from the origin.
-Since linear neurons produce straight contours, it is reasonable to think about curvature as indicating a deviation from linearity -- more curvy contours indicate less linear the input-output functions.
+Since linear neurons produce straight contours, it is reasonable to think about curvature as indicating a deviation from linearity -- more curvy contours indicate less linear input-output functions.
 Additionally, lets differentiate between outward curvature, which means it's bending away from the origin, and inward curvature, which means it is bending towards the origin.
 The curvature is significant because it tells us specifically about neuron selectivity and invariance.
 To understand that better, lets consider a few different types of coplanar perturbations that we can make to an input image.
@@ -158,14 +159,14 @@ To understand that better, lets consider a few different types of coplanar pertu
 Lets choose somewhere along the horizontal axis as a starting point and list some options for perturbation directions:
 - Right, towards the neuron's MEI, then the neuron's activity will grow
 - Left, away from the neuron's MEI, then the neuron's activity will shrink
-- Up, orthogonal to the neuron's MEI
-- Along the iso-response contour, which will not change the neuron's output
+- Up, orthogonal to the neuron's MEI, then the neuron's activity will change differently for each type
+- Along the iso-response contour, then the neuron's acitvity will not change
 
 ![perturbation-directions]
 {: style="text-align: center"}
 
 **fig. 7**
-Visualizations of four (of many) simple pertubation directions.
+Visualizations of four out of many possible simple pertubation directions.
 For each direction, assume we start with the image depicted by the square, then perturb to the pentagon, then again to the circle.
 Straight contours are indicated in shades of purple, outward bending in shades of red, and inward bending in shades of blue.
 Darker colors indicate higher neural activation.
@@ -212,7 +213,7 @@ The 'contour' perturbation direction reveals an important difference between neu
 The generated images are called _Gabor functions_, and are often used as an analogy for V1 neuron MEIs.
 Images produced along the contour for the top neuron cause an increase in contrast for the orthognal direction.
 In this case, it just looks like darks are getting darker and whites are getting whiter, although if you inspect it carefully you should see that it is not happening equally for all vertical segments.
-However, image produced along the contour for the bottom neuron shift in phase.
+However, images that lie along the bottom neuron's contour shift in phase.
 {: style="text-align: center"}
 
 ## Wrap up
