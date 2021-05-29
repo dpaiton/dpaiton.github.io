@@ -19,10 +19,12 @@ In such a world, images of vertical edges would occur when a column of 1s immedi
 To encode such a world, our brain might want to have a 'vertical edge detector' neuron that signals the presence of any vertical edges.
 This means we want our neuron to be _selective_ for the presence of an vertical edge, as opposed to other orientations, but _invariant_ to the phase of the edge, i.e. whether it is 0s followed by 1s or the other way around.
 In neuroscience, such a neuron is called a complex cell, and is a standard basic cell type.
-It was precisely the [discovery](https://www.brains-explained.com/how-hubel-and-wiesel-revolutionized-neuroscience/) of analogous neuron types in the visual cortex of cats that lead scientists to hypothesize that the brain is wired up to perform _computations_ on signals coming from the world.
-This discovery occured in the late 1950s, and about twenty years later a scientist named Dr. Kunihiko Fukushima proposed one of the earliest ancestors of the modern day deep neural network, called the [neocognitron](http://www.scholarpedia.org/article/Neocognitron).
+It was precisely the [discovery](https://www.brains-explained.com/how-hubel-and-wiesel-revolutionized-neuroscience/) of analogous neuron types in the visual cortex of cats that lead scientists to hypothesize that the brain is wired up to perform computations on signals coming from the world.
+This discovery occured in the late 1950s and created a revolution in neuroscience research.
+About twenty years later a scientist named Dr. Kunihiko Fukushima proposed a computer model to emulate the discovered behavior.
+His invention, called the [neocognitron](http://www.scholarpedia.org/article/Neocognitron), was one of the earliest ancestors of the modern day deep neural network.
 One of the defining elements of the neocognitron were "C-cells", which were designed to be selective for features in the world, but invariant to their position.
-In modern artificial neural networks, we often label neurons by what they are most selective for, such as [snout detectors](https://distill.pub/2017/feature-visualization/), and we explicitly engineer components that create invariance, such as [pooling](https://ai.plainenglish.io/pooling-layer-beginner-to-intermediate-fa0dbdce80eb) to create invariance to position.
+In modern artificial neural networks, we often label neurons by what they are most selective for, such as [snout detectors](https://distill.pub/2017/feature-visualization/), and we explicitly engineer components that create invariance, such as [pooling](https://ai.plainenglish.io/pooling-layer-beginner-to-intermediate-fa0dbdce80eb).
 Today scientists have a variety of methods to measure and quantify selectivity and invariance in both biological as well as artificial neurons.
 These measurements are extremely important, and are often used to categorize neurons into certain groups.
 This blog post aims to explain one such method, which is currently primarily used in neuroscience and relies on characterizing the geometry of a neuron's _response surface_.
@@ -48,7 +50,7 @@ Just like cutting an onion in half, one type of cross section will reveal very d
 Taking cross sections of complicated surfaces can reveal structure, but the structure looks different depending on the orientation of the cross section.
 {: style="text-align: center"}
 
-Instead of input neurons, lets think about a neuron that receives image pixels as input and produces a scalar output.
+Instead of input from other neurons, lets consider a neuron that receives image pixels as input and produces a scalar output.
 Individual input images can also be thought of as points in a high dimensional space.
 For example, a 10-by-10 image thumbnail has 10\*10=100 pixels.
 Therefore, we can equivalently think of the image as a point in a 100-dimensional space.
@@ -62,7 +64,6 @@ The next figure has an illustration of a 3D image space with such a 2D cross sec
 
 **fig. 2**
 Images are high-dimensional points.
-Cross sections can be taken in the high-dimensional space to define a subset of images that are coplanar.
 In this illustration, each yellow axis represents the value of a pixel for a three-pixel image.
 The grey sheet represents a plane, or cross section.
 The purple and blue arrows are vectors that define the plane.
@@ -77,10 +78,10 @@ Finally, we will measure the _curvature_ of the response surface to quantify sel
 
 ### Choosing a cross section
 We are interested in the behavior of the target neuron for images that it cares about, or ones it would see in its natural environment.
-As such, we shouldn't use just any old cross section to analyze a neuron, but instead cross sections that contain images (i.e. _points_) that are relevant for that neuron.
+As such, we shouldn't use just any old cross section to analyze a neuron, but instead cross sections that contain images (i.e. points) that are relevant for that neuron.
 The next figure illustrates how each point in the grid can be reshaped to be visualized as an image.
 A few of the points around the edges are displayed as images.
-Notice how these images have some structure to them, and are systematic in how they look.
+Notice how these images have some structure to them and are systematic in how they look.
 For any given cross section, all of the images are [coplanar](https://en.wikipedia.org/wiki/coplanarity), which is to say that they can all be described as a [linear combination](https://en.wikipedia.org/wiki/Linear_combination) of two exemplar images.
 
 
@@ -88,10 +89,9 @@ For any given cross section, all of the images are [coplanar](https://en.wikiped
 {: style="text-align: center"}
 
 **fig. 3**
-We discretize an image cross section (i.e. plane) into a two-dimensional grid and collect the points to define a dataset
+We discretize an image cross section into a two-dimensional grid and collect the points to define a dataset
 of images.
-The black arrows indicate orthogonal (i.e. perpendicular) vectors that can be used to define the plane.
-All images in the plane can be described as a linear combination of the two orthogonal image vectors indicated in black.
+The black arrows are perpendicular (i.e. orthogonal) vectors that define the plane.
 The origin for all of the planes we consider here will be a zero-contrast image, in other words a uniform gray image.
 {: style="text-align: center"}
 
