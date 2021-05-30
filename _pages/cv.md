@@ -14,7 +14,7 @@ A PDF of my full CV can be found [here](/files/paiton-cv.pdf).
 Education
 ======
 * B.S. in Electrical Engineering, New Mexico Institute of Technology, 2011
-* Ph.D in Vision Science, University of California, Berkeley, 2019
+* Ph.D. in Vision Science, University of California, Berkeley, 2019
 
 Publications
 ======
