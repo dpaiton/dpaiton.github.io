@@ -5,7 +5,7 @@ excerpt: "Welcome"
 author_profile: true
 header:
     image: cajal-glial-cerebral.jpeg
-    caption: "Santiago Ramón y Cajal, glial cells of the cerebral cortex of a child, 1904, ink and pencil on paper.<br>[Courtesy of the Cajal Institute, Spanish National Research Council, or CSIC. Madrid. Spain.](https://www.csic.es/)"
+    caption: "Santiago Ramón y Cajal, glial cells of the cerebral cortex of a child, 1904, ink and pencil on paper.<br>[Owned by the Cajal Institute, Spanish National Research Council, or CSIC. Madrid. Spain.](https://www.csic.es/)"
 redirect_from: 
   - /about/
   - /about.html
