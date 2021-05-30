@@ -30,7 +30,7 @@ One of the defining elements of the neocognitron were "C-cells", which were desi
 In modern artificial neural networks, we often label neurons by what they are most selective for, such as [snout or car detectors](https://distill.pub/2017/feature-visualization/), and we explicitly engineer components that create invariance, such as [pooling](https://ai.plainenglish.io/pooling-layer-beginner-to-intermediate-fa0dbdce80eb).
 Today scientists have a variety of methods to measure and quantify selectivity and invariance in both biological as well as artificial neurons.
 These measurements are extremely important for developing an understanding of how we process information, and are often used to categorize neurons into groups.
-This blog post aims to explain one such method, which is currently primarily used in neuroscience and relies on characterizing the geometry of a neuron's _response surface_.
+This blog post aims to explain one such method, which is primarily used in neuroscience and relies on characterizing the geometry of a neuron's _response surface_.
 
 ### The neural response surface
 First, an obvious statement: neurons receive signals as input and produce signals as output.
@@ -225,7 +225,7 @@ The perturbations for the top neuron have similar behavior as in the first exper
 With increasing perturbations, the image will look less like $$\Phi_{k}$$ and more like $$\nu_{\text{phase}}$$.
 However, this transition is _linear_, which means you will see both phases super-imposed on top of each other.
 It is not actually shifting the phase of the edge.
-The perturbations for the top neuron, on the other hand, result in a continuous phase shift.
+The perturbations for the bottom neuron, on the other hand, result in a continuous phase shift.
 By definition, since these images lie along the iso-response contour, the output of the neuron is equal for all of them.
 This means that the bottom cell has phase _invariance_, while the top cell does not.
 
@@ -244,7 +244,7 @@ The curvature analysis gives us a succinct way to understand the nonlinear funct
 
 In summary, the big takeaways are:
 - linear and pointwise nonlinear neurons have flat iso-response contours, regardless of the nonlinearity used
-- flat iso-response contours indicate linearity, and that the neuron's response will not change if inputs are perturbed orthogonally from their preferred stimulus
+- flat iso-response contours indicate linearity and that the neuron's response will not change if inputs are perturbed orthogonally from their preferred stimulus
 - outward-curved contours indicate selectivity, and the amount of curvature will tell us how selective the neuron is
 - inward-curved contours indicate invariance, which is a property of biological complex cells
 
