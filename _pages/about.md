@@ -11,7 +11,7 @@ redirect_from:
   - /about.html
 ---
 
-The following are recordings of talks I have given on my work.
+The following are recordings of talks I have given:
 
 <br><strong>Subspace Locally Competitive Algorithms</strong><br>
 presented @ the Neurally Inspired Computational Elements conference.
