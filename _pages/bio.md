@@ -11,7 +11,7 @@ author_profile: true
 
 <strong>Education</strong><br>
 I am currently a Postdoctoral Researcher in the
-[Bethge lab](https://bethgelab.org) at the University of T&uuml;bingen in Germany.
+[Bethge lab](http://bethgelab.org) at the University of T&uuml;bingen in Germany.
 I received my PhD in Vision Science from the University of California, Berkeley, where I
 worked at the [Redwood Center for Theoretical Neuroscience](http://redwood.berkeley.edu/).
 Before that I was a post-baccalaureate researcher in
