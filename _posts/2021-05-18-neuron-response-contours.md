@@ -67,9 +67,9 @@ The next figure has an illustration of a 3D image space with such a 2D cross sec
 **fig. 2**
 Images are high-dimensional points.
 In this illustration, each yellow axis represents the value of a pixel for a three-pixel image.
-The grey sheet represents a plane, or cross section.
-The purple and blue arrows define the plane.
-The red arrow points in the remaining direction, which is perpendicular to the plane.
+The grey sheet represents a cross section, or plane.
+The purple and blue arrows define the cross section.
+The red arrow points in the remaining direction, which is perpendicular to the cross section.
 {: style="text-align: center; font-size:11pt"}
 
 Here's a roadmap of what is to come:
@@ -95,17 +95,17 @@ For any given cross section, all of the images are [coplanar](https://en.wikiped
 **fig. 3**
 We discretize an image cross section into a two-dimensional grid and collect the points to define a dataset
 of images.
-The black arrows are perpendicular vectors that define the plane.
-The origin for all of the planes we consider here will be a zero-contrast image, in other words a uniform gray image.
+The black arrows are perpendicular vectors that define the cross section.
+The origin for all of the cross sections we consider here will be a zero-contrast image, in other words a uniform gray image.
 {: style="text-align: center; font-size:11pt"}
 
 In addition to constraining our input space to be coplanar, we are also going to constrain our output space to simplify the analysis.
 Specifically, we are going to look at the curvature of the _iso-response contours_ of the neuron.
-These contours are connected points that are all on the plane and all produce the same output from the neuron.
+These contours are connected points that are all on the cross section and all produce the same output from the neuron.
 To see the iso-response contours, we will compute the neuron’s output (i.e. _activity_) for all of the cross section images and then recolor the points according to the activity.
 
-As I said before, we want to pick a plane that is relevant for our neuron.
-To do this we define one of the two plane axes as the neuron's _maximally exciting image (MEI)_, which is an image that was optimized to look like the feature in the world that is most interesting to the neuron.
+As I said before, we want to pick a cross section that is relevant for our neuron.
+To do this we define one of the two cross section axes as the neuron's _maximally exciting image (MEI)_, which is an image that was optimized to look like the feature in the world that is most interesting to the neuron.
 There are a lot of ways to find a neuron's MEI in neuroscience and in artificial neural network research, but for now let's leave asside how the image was produced and just assume it is representative of what the neuron likes most.
 Going forward, we will represent the MEI with the symbol $$\Phi_{k}$$ (read: [phi](https://en.wikipedia.org/wiki/Phi), sounds like "fi" in "financial"), where the $$k$$ tells us it is the MEI for the $$k$$th neuron in our assembly.
 For now the other axis can be any random perpendicular (i.e. _[orthogonal](https://en.wikipedia.org/wiki/Orthogonality)_) image, but we will choose more specific orthogonal images later.
@@ -114,7 +114,7 @@ For now the other axis can be any random perpendicular (i.e. _[orthogonal](https
 {: style="text-align: center; font-size:11pt"}
 
 **fig. 4**
-The horizontal axis for an image plane is always the target neuron's maximally exciting image, or MEI.
+The horizontal axis for an image cross section is always the target neuron's maximally exciting image, or MEI.
 {: style="text-align: center; font-size:11pt"}
 
 ### Plotting the contours
@@ -194,7 +194,7 @@ Each perturbation point is displayed on the right.
 {: style="text-align: center; font-size:11pt"}
 
 To start, we have two neurons with identical MEIs, but different curvature.
-The vertical axis that helps define our plane, $$\nu_{\text{noise}}$$, is a random noise image.
+The vertical axis that helps define our cross section, $$\nu_{\text{noise}}$$, is a random noise image.
 This means that an 'up' perturbation will result in the MEI looking more and more noisy.
 Again let's consider the pointwise nonlinear neuron.
 What happens to the output if we take a fixed point on the $$\Phi_{k}$$ axis and then perturb orthognally in the up direction?
