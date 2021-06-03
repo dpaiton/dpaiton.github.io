@@ -81,7 +81,7 @@ Finally, we will measure the _curvature_ of the response surface to quantify sel
 ### Choosing a cross section
 We are interested in the behavior of the target neuron for images that it cares about, or ones it would see in its natural environment.
 As such, we shouldn't use just any old cross section to analyze a neuron, but instead cross sections that contain images (i.e. points) that are relevant for that neuron.
-Cross sections are defined by two [_vectors_](https://youtu.be/uPbBDToXjBw), which are mathematical objects that point in a particular direction in space and are drawn as arrows.
+Cross sections are defined by two [_vectors_](https://youtu.be/fNk_zzaMoSs), which are mathematical objects that point in a particular direction in space and are drawn as arrows.
 If we set at least one of the vectors to be pointing in the direction of an image that the neuron cares about, then we know that the cross section at least partially contains interesting inputs for the neuron.
 The next figure illustrates how each point in the grid can be reshaped to be visualized as an image.
 A few of the points around the edges are displayed as images.
