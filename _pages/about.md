@@ -1,7 +1,7 @@
 ---
 permalink: /
 title: "Welcome!"
-excerpt: "Welcome"
+excerpt: "Dylan Paiton"
 author_profile: true
 header:
     image: cajal-glial-cerebral.jpeg
