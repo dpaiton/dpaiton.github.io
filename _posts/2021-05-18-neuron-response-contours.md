@@ -1,6 +1,6 @@
 ---
-title: 'Explaining neurons using response geometry'
-date: 2021-05-24
+title: 'Understanding neurons using response geometry'
+date: 2021-05-18
 permalink: /posts/2021/05/response-geometry/
 tags:
   - response geometry
