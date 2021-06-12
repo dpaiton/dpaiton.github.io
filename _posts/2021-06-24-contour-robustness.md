@@ -8,76 +8,41 @@ tags:
   - differential geometry
 ---
 
-Robustness and response curvature
-======
-
-Dylan M Paiton
+Defending against adversarial attacks is critical for modern AI applications. Here I describe how we can use an analytic method for summarizing the input-output relationship of neurons to predict how easy it is to attack them.
 ------
 
 This writeup is builds on my [previous post]({{site.url}}/posts/2021/05/response-geometry/) about using the curvature of a neuron's response surface to understand its behavior.
-If that idea is unfamiliar to you, then I recommend reading the previous post before this one.
+If that idea is unfamiliar to you, then I recommend reading that post before this one.
 
 ### Adversarial examples
 Adversarial examples are a worst-case demonstration of a deep neural network's (DNNs) inability to gracefully cope with small shifts in their inputs.
 To construct one, an adversary must modify, or _perturb_, the input in a very small but specific way such that the output of the DNN changes significantly.
-For DNNs trained on images, these perturbations can be so small that many monitors can't display the difference in pixel values.
-The figure below is adapted from an iconic example provided in [one of the early papers demonstrating adversarial attacks on DNNs, authored by Christian Szegedy and colleagues.]{https://arxiv.org/abs/1312.6199}.
-The original input images are in the left column and belong to the categories "speaker", "mantis", and "dog".
+The figure below is adapted from an iconic example provided in one of the [first papers](https://arxiv.org/abs/1312.6199) demonstrating adversarial attacks on DNNs, authored by Christian Szegedy and colleagues.
+The original input images are in the left column and belong to the categories "mantis" and "dog".
 The images in the middle column are adversarial perturbations, which can be added in to the original inputs to produce the adversarial inputs in the right column.
 All of the adversarial input images are labeled as "ostrich" by the network.
-In this example, the average perturbation size is 0.6% of one pixel, but they are magnified in the figure to demonstrate what they look like.
+The perturbations have to be magnified to allow you to see what they look like because their original scale is at the lower bound of what a typical computer image can convey.<a href="{{page.url}}#dagger"><sup>†</sup></a>
 Importantly, these attacks do not just apply to images.
 They have been demonstrated to work pretty much anywhere that DNNs are useful, and they almost always seem innocuous or are imperceptible for a person.
-Successful demonstrations include skewing text analysis that is used for [product review summaries, social media feeds, and search result rankings]{https://arxiv.org/pdf/1804.07998.pdf}, tricking your smart home device to [execute a command]{https://arxiv.org/abs/1801.01944}, and tricking a self-driving car to [mistake a stop sign for a yield sign]{https://arxiv.org/abs/1707.08945}.
+Successful demonstrations include tricking text analyzers that are used for [product review summaries, social media feeds, and search result rankings](https://arxiv.org/pdf/1804.07998.pdf), tricking smart home devices to [execute a command](https://arxiv.org/abs/1801.01944), and tricking a self-driving car to [mistake a stop sign for a yield sign](https://arxiv.org/abs/1707.08945).
 ![adversarial-images]
 
-At a high level (and in my humble opinion), I see adv examples as one of many pieces of evidence supporting the idea that DNNs don’t “perceive” like we do.
-That’s the long and short of it.
-A DNN practitioner may some day find a way to improve adv robustness to some industry-accepted level, but that is just whacking one of many moles.
-So I don’t think a research agenda focused on improving DNN adv defense is wise.
-However, adv examples do still serve as an interesting test of our own ideas.
-If we have an idea to explain perception, then our model better be robust to adv attacks.
-Also, if our goal is understanding how DNNs work, and less fixing DNNs, then there’s a lot to be gained in studying adv examples.
-
-My favorite perspective on adv examples is that of Seyed-Mohsen Moosavi-Dezfooli.
-He has several papers on the topic, which you can find on his scholar page, although tbh I’d recommend just skipping right to his PhD thesis.
-It is really well written and covers all of the papers.
-Part II is what you’re mostly interested in, but the whole thing is good. https://infoscience.epfl.ch/record/271933
-He takes a geometric perspective by looking at the curvature of the network’s decision boundaries to assess robustness.
-I believe such a geometric viewpoint is going to be necessary, and if anything we should be looking more closely at how to use differential geometry to understand the loss surface (wrt image perturbations — not to be confused with the loss surface wrt to parameter perturbations).
-I’d also recommend this paper: https://arxiv.org/abs/1811.00401 which gives a complementary perspective to the analysis associated with Fig 7.2 of Moosavi-Dezfooli’s thesis.
-This gives us insight into something that I think Bruno would argue is obvious for high-D spaces — that it’s easy to walk in a straight line from any one image to another while staying in the same classification region.
-We need to remember that high-D spaces provide massive freedom for an adversary to find an attack direction.
-I think this strongly supports an argument against adv training as a reasonable defense.
-You’re never going to patch all of the holes.
-And even if you could, hole patching is a horribly inefficient approach.
-I like this paper a lot too: https://arxiv.org/abs/1704.03453.
-It has some flaws in the methodology, the biggest one being that the projection operator they do to keep the image in [0, 1] bounds destroys the orthogonality constraint when measuring dimensionality and they never test linear independence.
-So their estimate of the dimensionality of the adversarial space is not to be believed.
-Regardless, this line of thinking is again taking more of a geometric approach.
-Understanding the ‘adversarial dimensionality’ is very important for defending against them and for understanding the decision surface in general.
-I think we can define adv attacks as any image perturbation that is designed to modify the outcome of the classifier in a specific (i.e. non-random) way.
-As you point out, adversarial attacks will always exist.
-And as you point out, with my broad definition they are not all interesting.
-In my opinion (which I discuss in my own paper) there are two key components to adversarial examples that make them interesting: 1) the size of the perturbation and 2) the semantic content of the perturbation.
-These two things are related.
-
-An example of interesting semantic content could be a stroke in the middle of a 0 to make it look like an 8, or [putting wheels on a canoe]{https://johnnygraphicadventures.files.wordpress.com/2014/05/104_0392.jpg?w=1054&h=790} to trick the classifier into thinking it is a bicycle.
-This is a fairly reasonable mistake, and therefore not interesting.
-If the perturbation were extremely tiny, to the point where it’s basically imperceptible to a human, then it would be more interesting, because the network should not care so much about any perturbation that is so small.
-The most interesting thing, though, is that we can make mostly nonsense and tiny perturbations to trick the classifier.
-Not only this, but these nonsense perturbations are consistently the ones that we find with gradient based methods.
-So yes, while adv attacks will always exist, once they gets big enough we can just call them reasonable, and the same goes for once they looks sufficiently semantically interesting.
-
-As an aside: I think the common assumption is that we find nonsense perturbations because those directions are more optimal than semantically meaningful perturbations.
-I mostly agree with this.
-There’s a counter argument that semantically meaningless perturbations are just more common and not necessarily more optimal.
-However, a lot of papers have found that successful adv defenses (e.g. my paper, here, and here) result in more semantically meaningful adv attacks that are also larger in magnitude.
-If you think about it, it makes sense that nonsense perturbation directions that are never in the training set can get you closer to the decision boundary than semantically interesting perturbation directions.
+At a high level, adversarial examples are one of many pieces of evidence supporting the idea that DNNs don’t [perceive the world like we do](https://www.nytimes.com/2018/11/05/opinion/artificial-intelligence-machine-learning.html).
+Given that there are other mismatches, exclustively setting out to solve adversarial succeptibility in DNNs is unlikely to align human and machine perception.
+However, adversarial examples still serve as a valuable test of ideas in neural computation: if we have an idea to explain perception, then our model of the idea had better be robust to adversarial attacks.
+This brings up another question: what even does it mean to be robust to such attacks?
+To define the solution we should also be careful in our definition of the problem.
+As I described before, _adversarial examples_ are perturbations to the input of a network that are small in magnitude but cause a big enough shift in its output to change its behavior.
+Often times, they are also semantically unrelated to the new output of the network -- the "ostrich" perturbation is not recognizable as an ostrich.
+These two criteria, small size and uninterpretable semantic quality, are what makes them so interesting to researchers.
+There are adversarial perturbations that could trick a classifier but would not be interesting, such as adding a horizontal stroke to a "0" to trick a classifer into calling it an "8", or [putting wheels on a canoe](https://johnnygraphicadventures.files.wordpress.com/2014/05/104_0392.jpg?w=1054&h=790) to trick the classifier into thinking it is a bicycle.
+If these were the types of adversarial attacks demonstrated by Szegedy and colleagues, then no one would have paid any attention.
+Unfortunately we do not have a good way to measure "semantic quality", so the research community typically uses the average size of the perturbations to measure robustness.
+However, they do often also show examples of perturbed inputs to allow readers to judge for themselves whether the semantic content is reasonable given the original and new network outputs.
+With this definition in hand, we next need to understand how such an attack is created.
 
 ### Gradients
-So how does one construct such an attack?
-Of course there are many methods, and they can roughly be categorized by how much access they have to the network they are attacking.
+There are many methods for constructing adversarial perturbations and they can roughly be categorized by how much access they have to the network they are attacking.
 It is possible to perform such an attack by only knowing the general goal of the network (e.g. "classify images"), but the most successful attacks have direct access to the network.
 This direct access allows the attacker to compute _gradients_, which ideally result in an exact signal for the smallest possible perturbation required to trick the network.
 
@@ -149,5 +114,8 @@ If we expand our previous example to consider a two-layer network, as shown belo
 
 ### Wrapup
 <!--- wrapup  -->
+
+### Footnotes
+<a name="dagger">†</a> Computer images are composed of pixels that each take on one of 256 possible values. This is the same as saying that they are 8-bit images. If one were to rescale the pixel values to be between 0 and 1, then the average pixel perturbation size for the examples from Szegedy et al. is 0.006. This corresponds to changing a single pixel by about 2, or in reality changing many pixels by less than 1. As such, adversarial perturbations are often smaller than the available bit-depth of current displays.
 
 [adversarial-images]: /images/adversarial-robustness/adversarial-robustness.png

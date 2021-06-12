@@ -8,7 +8,7 @@ tags:
   - deep net interpretability
 ---
 
-Dylan M Paiton
+Scientists have long summarized neurons by describing the relationship between their inputs and outputs. Here I describe a new technique that allows us to go beyond previous approaches to succicinctly describe important and complex neural behavior.
 ------
 
 ![curvatures]
@@ -252,6 +252,7 @@ In summary, the big takeaways are:
 
 There is much more that we can learn by looking at the curvature of the iso-response surfaces, which I will discuss in upcoming posts.
 In the interum, if you are eager to read more, check out [my own paper](/publication/2020-11-02-selectivity-and), as well as the work of [James Golden et al. (PDF)](http://jamesgolden.net/wp-content/uploads/2017/10/golden_vilankar_wu_field_conjectures_nonlinear_geometry_vision_research_2016_preprint.pdf).
+
 
 [curvatures]: /images/response-geometry/curvatures.png
 [2d-plane]: /images/response-geometry/2d-plane.png
