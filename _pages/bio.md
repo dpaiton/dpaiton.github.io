@@ -10,7 +10,7 @@ author_profile: true
 <img style="float: center; margin: 0px 15px 15px 0px;" src="../images/family.jpeg" width="80%" />
 
 <strong>Education</strong><br>
-I am currently a Postdoctoral Researcher in the
+I am currently a Postdoctoral researcher in the
 [Bethge lab](http://bethgelab.org) at the University of T&uuml;bingen in Germany.
 I received my PhD in Vision Science from the University of California, Berkeley, where I
 worked at the [Redwood Center for Theoretical Neuroscience](http://redwood.berkeley.edu/).
@@ -39,7 +39,7 @@ Kenyon's group at Los Alamos National Lab, where he studied biophysical retina m
 hierarchical sparse coding networks. He obtained his PhD in Vision Science from the University of
 California, Berkeley under the advisement of Dr. Bruno Olshausen. For his PhD thesis he developed an
 analysis technique to explain selectivity and robustness properties of a sparse coding neural
-network. Currently, he is a postdoctoral researcher in Dr. Matthias Bethge's lab at the University
+network. Currently, he is a Postdoctoral researcher in Dr. Matthias Bethge's lab at the University
 of Tübingen. He is extending his PhD thesis work to discover novel modes of invariance and
 selectivity in biological neurons. He is also supervising students working in the fields of
 disentanglement and adversarial robustness.

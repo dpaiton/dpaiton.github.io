@@ -52,14 +52,16 @@ Just like cutting an onion in half, one type of cross section will reveal very d
 Taking cross sections of complicated surfaces can reveal structure, but the structure looks different depending on the orientation of the cross section.
 {: style="text-align: center; font-size:11pt"}
 
-Instead of input from other neurons, let's consider a neuron that receives image pixels as input and produces a scalar output.
+Instead of input from other neurons, let's consider a neuron that receives images as input and produces a scalar (i.e. single number) output.
 Individual input images can also be thought of as points in a high dimensional space.
 For example, a 10-by-10 image thumbnail has 10\*10=100 pixels.
 Therefore, we can equivalently think of the image as a point in a 100-dimensional space.
 Each dimension can be represented as an axis, where the position along the axis is the value of the pixel.
-If individual pixels are allowed to be numbers between 0 and 1 (like in a grayscale image), then all allowable images exist in a 100-dimensional cube.
+If individual pixels are allowed to be numbers between 0 and 1 (like in a grayscale image, wehere 0 is black, 0.5 is gray, and 1 is white), then all allowable images exist in a 100-dimensional cube.
 Just to really drive this idea home -- every single point in the 100-dimensional cube is also an image.
-The next figure has an illustration of a 3D image space with such a 2D cross section drawn in light grey.
+The next figure has an illustration of a 3D image space with such a 2D cross section drawn in light gray.
+If we draw arrows starting from a single origin such that the tips reach two image points, then we can compute the angle between the arrows to determine how similar those images are.
+Finally, if two image arrows are perpendicular then they are maximally dissimilar from each other.
 
 ![2d-plane]
 {: style="text-align: center; font-size:11pt"}
@@ -67,7 +69,7 @@ The next figure has an illustration of a 3D image space with such a 2D cross sec
 **fig. 2**
 Images are high-dimensional points.
 In this illustration, each yellow axis represents the value of a pixel for a three-pixel image.
-The grey sheet represents a cross section, or plane.
+The gray sheet represents a cross section, or plane.
 The purple and blue arrows define the cross section.
 The red arrow points in the remaining direction, which is perpendicular to the cross section.
 {: style="text-align: center; font-size:11pt"}
