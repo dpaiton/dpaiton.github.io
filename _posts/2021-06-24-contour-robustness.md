@@ -1,6 +1,6 @@
 ---
 title: 'Response geometry explains adversarial robustness'
-date: 2021-06-10
+date: 2021-06-26
 permalink: /posts/2021/06/adversarial-robustness/
 tags:
   - response geometry
@@ -8,8 +8,7 @@ tags:
   - differential geometry
 ---
 
-Defending against adversarial attacks is critical for modern AI applications.
-Here I describe how we can use an analytic method for summarizing the input-output relationship of neurons to predict how easy it will be to attack them.
+Defending against adversarial attacks is critical for modern AI applications. Here I describe how we can use an analytic method for summarizing the input-output relationship of neurons to predict how easy it will be to attack them.
 ------
 
 This writeup is builds on my [previous post]({{site.url}}/posts/2021/05/response-geometry/) about using the curvature of a neuron's response surface to understand its behavior.
@@ -20,8 +19,8 @@ Adversarial examples are a worst-case demonstration of a deep neural network's (
 To construct one, an adversary must modify, or _perturb_, the input in a very small but specific way such that the output of the DNN changes significantly.
 The figure below is adapted from an iconic example provided in one of the [first papers](https://arxiv.org/abs/1312.6199) demonstrating adversarial attacks on DNNs, authored by Dr. Christian Szegedy and colleagues.
 The original input images are in the left column and they belong to the categories "mantis" and "dog".
-The images in the middle column are adversarial perturbations, which can be added in to the original inputs to produce the adversarial inputs in the right column.
-All of the adversarial input images are labeled as "ostrich" by the network.
+The images in the middle column are adversarial perturbations, which can be added to the original inputs to produce adversarial images in the right column.
+All of the adversarial images are labeled as "ostrich" by the network.
 The perturbations have to be magnified to allow you to see what they look like because their original scale is at the lower bound of what a typical computer image can convey.<a href="{{page.url}}#dagger"><sup>†</sup></a>
 Importantly, these attacks do not just apply to images.
 They have been demonstrated to work pretty much anywhere that DNNs are useful, and they almost always seem innocuous or are imperceptible for a person.
@@ -38,7 +37,7 @@ To be more precise, _adversarial examples_ are perturbations to the input of a n
 While this is not a hard requirement, they are also often semantically unrelated to the new output of the network -- for example the "ostrich" perturbation is not recognizable as an ostrich.
 These two criteria, small size and uninterpretable semantic quality, are what makes them so interesting to researchers.
 There are adversarial perturbations that could trick a classifier but would not be interesting, such as adding a horizontal stroke to a "0" to trick a classifer into calling it an "8", or [putting wheels on a canoe](https://vikebike.com/vikebike01_FullRes.jpg) to trick the classifier into thinking it is a bicycle.
-If these obvious attacks were what was demonstrated by Dr. Szegedy and colleagues then few researchers would have paid attention.
+If these obvious attacks were what was demonstrated by Dr. Szegedy and colleagues then few other researchers would have paid attention.
 Unfortunately, we do not have a good way to measure "semantic quality," so the research community can only use the average size of the perturbations to quantify _adversarial robustness_, which indicates how suceptible a network is to adversarial attacks.
 However, they do often also show examples of perturbed inputs to allow readers to judge for themselves whether the semantic content is reasonable given the original and new network outputs.
 Now that we have defined the adversarial attacks and robustness we can better understand how such attacks are conducted.
@@ -46,36 +45,39 @@ Now that we have defined the adversarial attacks and robustness we can better un
 ### Following gradients
 There are many methods for constructing adversarial perturbations and they can roughly be categorized by how much access they have to the network they are attacking.
 All of the methods, however, seek the same goal: to maximally change a function's output given a minimal change in its input.
-To illustrate how attackers achieve this, lets consider an example where the function input is the position on a map and the function output is the elevation at that position.
+To illustrate how attackers achieve this, let's consider an example where the function input is the position on a map and the function output is the elevation at that position.
 We can summarize such a function with a [topographic map](https://openpress.usask.ca/geolmanual/chapter/overview-of-topographic-maps/).
 Topographic maps use iso-elevation lines to indicate altitude, which means your elevation is constant if you walk along the line.
-This is illustrated in the next figure.
+This is illustrated in the following figure:
 
 ![topographic-elevation]
 {: style="text-align: center; font-size:11pt"}
 
 **fig. 2**
-Topographic maps indicate altitude with iso-elevation.
+Topographic maps indicate altitude with iso-elevation lines.
 {: style="text-align: center; font-size:11pt"}
 
 Following the goal we defined earlier, we want to determine how to minimally change our position and maximally increase our elevation.
-There are two things to focus on to solve this: one is where to start and the second is what direction to walk from that point.
+There are two things to consider to solve this: one is where to start and the second is what direction to walk from there.
 In the case of adversarial examples the starting position is fixed to be the original input, like the dog or mantis above.
 In the figure below we indicate a starting position with the smiley face.
 The optimal direction to climb at any given position is orthogonal to the iso-elevation lines.
+This orthogonal direction aligns with the maximum gradient of the function, which is a term in math that has an intuitive mapping on to gradients in common language, such as a temperature gradient or the grade of a hill.
+That is to say that the _gradient_ indicates how much the function's output changes for a given minimal directional change in the function's input.
 
 ![topographic-ascent]
 {: style="text-align: center; font-size:11pt"}
 
 **fig. 3**
-A path that is orthogonal to the iso-elevation lines in a topographic map indicates the fastest way to change elevation.
+A path that is orthogonal to the iso-elevation lines in a topographic map indicates the fastest way to change altitude.
 {: style="text-align: center; font-size:11pt"}
 
-All methods for finding adversarial examples are derived from this same guiding principal.
+All methods for finding adversarial examples are derived from this same guiding principal, which is to use _gradients_ to determine what direction to go.
 I'll explain in the wrap-up that this is considered a _local_ perspective on finding an optimal direction.
-In the [previous post]({{site.url}}/posts/2021/05/response-geometry/) on iso-response contours, I explained how images can be thought of as arrows reaching to points in a high-dimensional space.
+In my [previous post]({{site.url}}/posts/2021/05/response-geometry/) on iso-response contours, I explained how images can be thought of as arrows reaching to points in a high-dimensional space.
 Along this line of reasoning, an adversarial perturbation can be drawn as an arrow extending from the original input with some direction and magnitude.
-This the same concept that we are using in figure 3: each red arrow starts at some position and ends at some other position, and just like each point on that map has an analogous location in the world (in this case Hawaii), each point in our neuron iso-response contour figures have analogous images.
+This the same concept that we are using in figure 3: each red arrow starts at some position and ends at some other position.
+And just like each point on that map has an analogous location in the world (in this case Hawaii), each point in our neuron iso-response contour figures have analogous images.
 To determine the input perturbation that maximally changes a function's output, we choose arrow directions that are orthogonal to the function's iso-response contours.
 Usually that function is an entire neural network, but the explanation works just as well if we instead use a single neuron.
 
@@ -84,6 +86,7 @@ Scientists use a large variety of different types of models to describe neurons 
 One way to organize the models is by their level of abstraction, which is describes the tradeoff between biological accuracy and computational complexity.
 Indeed, one major goal of computational neuroscience is to discover the level of abstraction that has minimal complexity while still emulating the behavior of biological organisms.
 A neuron's response surface geometry can help us quantify differences in behavior, such as a model's selectivity, invariance, or robustness.
+It can also help us understand complexity, in that neurons with straight iso-response contours are minimally complex and so any deviation from straight contours will indicate less complex (i.e. less _linear_) processing.
 To apply the above climbing example to explaining neuron robustness, let's consider two models: one that produces straight iso-response contours and one that produces exo-origin bent iso-response contours.
 The next figure shows the iso-response contours for these models as well as the arrows indicating optimal adversarial perturbation directions for increasing their response with minimal perturbation size.
 
@@ -91,8 +94,44 @@ The next figure shows the iso-response contours for these models as well as the 
 {: style="text-align: center; font-size:11pt"}
 
 **fig. 4**
-Neurons with different iso-response contour curvature will result in different adversarial attacks.
+Neurons with different iso-response contour curvature will require in different adversarial attacks.
 {: style="text-align: center; font-size:11pt"}
+
+In the above figure there are two arrow types.
+The short gray arrows indicate optimal gradient directions.
+The longer colored arrows indicates an optimal adversarial perturbation from a given starting point, which is indicated by a black circle.
+The numbers above the colored iso-response lines indicate neuron outputs (in arbitrary units), which generally increase to the right.
+The $$\Phi_{k}$$ variable indicates the direction of the neuron's maximally exciting image, or MEI.
+As the name implies, this image tells us what feature the neuron is most excited about in the world.
+In biological and artificial neural networks, the MEI features vary in complexity as one ascends a hierarchy of processing stages, from simple edges at the lowest levels to faces and complex objects at the highest levels.
+Both neuroscientists and deep learning researchers often use a neuron's MEI to label that neuron, for example as a "dog detector" or a "vertical edge detector."
+All of this matters when we think about an adversarial attack on the neuron.
+
+As I discussed earlier, if we modify a picture of the number "0" to look more like an "8", then we should not be too surprised if a neuron that has an MEI that looks like an "8" to get more excited.
+For both neurons, as we take steps in the adversarial direction, the output will look more and more like the neuron's MEI.
+However, this will happen faster for the neuron with the curved response contours, to the point where the input eventually just ends up looking exactly like the MEI.
+This means that the optimal perturbation direction for neurons with curved response contours is more aligned with their MEIs than for neurons with straight contours.
+Thus, if we assume that neurons are interested in semantically relevant features, then we hypothesize that the resulting adversarial perturbations are going to be more semantically relevant if the neurons with curved response contours.
+
+When we have a network of these neurons, then it turns out that the curved contours can result in larger overall perturbations as well.
+An ensemble of neurons with bent contours will constrain the adversary, limiting its perturbation options.
+The next figure demonstrates the idea, where we show at all possible pixel values that will result in an increased activation for neuron $$k$$.
+
+![constrained-optimization]
+{: style="text-align: center; font-size:11pt"}
+
+**fig. 5**
+Bent iso-response contours constraint the space of possible inputs to increase a neuron's activation.
+{: style="text-align: center; font-size:11pt"}
+
+The dotted box represents the range of allowable pixel values for input images.
+The yellow shaded area represents all possible inputs that would increase the activation of neuron $$k$$ if it had straight iso-response contours.
+Conversely, the green shaded area represents all possible inputs that would increase the activation of neuron $$k$$ if it had bent iso-response contours.
+As you can see if we overlay the two shapes, any amount of bending will necessarily reduce the number of possible pixels.
+This means an adversary will have fewer options to choose from if it wishes to increase the output of neuron $$k$$.
+
+### Wrap-up ###
+
 
 ### Why are real neurons recurrent?
 <!--- linear, nonlinear, & recurrent models explinations  -->
@@ -107,7 +146,7 @@ This type of neuron performs a weighted sum of its inputs to produce its outputs
 
 <!--- constraining the search space  -->
 
-As a running example lets consider a neural network that takes images as inputs and produces labels for those images as output.
+As a running example let's consider a neural network that takes images as inputs and produces labels for those images as output.
 Importantly, though, the concepts explained here can be applied broadly in all AI supported industries, including self driving car technology, speech recognition, and robot training.
 Adversarial robustness is currently one of the top research areas in AI, and has critical importance for almost all AI industries (which these days can almost be replaced with “almost all industries”).
 
@@ -133,7 +172,7 @@ This determines our starting position.
 Once we are at the starting position, how do we decide what direction to go? If you want to maximally change your elevation with minimal steps, you must move perpendicular to the iso-elevation lines.
 This is true regardless of the line spacing and is easiest to think about if we imagine that all of the contour lines are equally spaced, i.e. the mountain has the same slope everywhere.
 We will illustrate the idea by looking at the 2D neuron iso-response maps that we used in the previous blog post.
-As a starting point, lets consider a linear neuron, which has straight and equally-spaced iso-response lines.
+As a starting point, let's consider a linear neuron, which has straight and equally-spaced iso-response lines.
 The horizontal axis is the neuron’s MEI, or maximally exciting image, which was determined to be the image that causes the largest output.
 If we perturb an input orthogonal to the iso-response lines, then the activation maximally changes.
 If we go in the direction of the MEI (to the right in this case) then the activation maximally grows, and vice versa for the opposite direction.
@@ -172,3 +211,5 @@ Please see [my paper](/publication/2020-11-02-selectivity-and) for further readi
 [topographic-elevation]: /images/adversarial-robustness/topographic-elevation.png
 [topographic-ascent]: /images/adversarial-robustness/topographic-ascent.png
 [adversarial-neuron-attack]: /images/adversarial-robustness/adversarial-neuron-attack.png
+[perturbation-sizes]: /images/adversarial-robustness/perturbation-sizes.png
+[constrained-optimization]: /images/adversarial-robustness/constrained-optimization.png
