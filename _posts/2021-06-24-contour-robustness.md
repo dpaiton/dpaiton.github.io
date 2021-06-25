@@ -8,7 +8,7 @@ tags:
   - differential geometry
 ---
 
-Defending against adversarial attacks is critical for modern AI applications. Here I describe how we can use response geometry to predict a neuron's suceptibility to attack.
+Defending against adversarial attacks is critical for modern AI applications. Here I describe how we can use response geometry to predict a neuron's suceptibility to attacks.
 ------
 
 This writeup is builds on my [previous post]({{site.url}}/posts/2021/05/response-geometry/) about using the curvature of a neuron's response surface to understand its behavior.
