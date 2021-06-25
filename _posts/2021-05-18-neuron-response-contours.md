@@ -17,18 +17,18 @@ Scientists have long summarized neurons by describing the relationship between t
 An important computational goal of the early visual pathway, from the retina to the primary visual cortex (V1), is to produce a representation of visual features that are useful for downstream tasks, like navigating the world and identifying objects.
 In order for a V1 neuron’s output to be decoded by downstream brain areas, it must reliably modulate its response with respect to certain variations in the visual world and remain constant for others.
 For example, let's suppose we live in a binary edge world, where all scenes are made up of combinations of oriented edges.
-In such a world, images of vertical edges would occur when a column of 1s immediately preceded a column of 0s, or vice versa.
+In such a world, images of vertical edges would occur when a column of 1s immediately precedes a column of 0s, or vice versa.
 To encode such a world, our brain might want to have a 'vertical edge detector' neuron that signals the presence of any vertical edges.
-This means we want our neuron to be _selective_ for the presence of an vertical edge, as opposed to other orientations, but _invariant_ to the phase of the edge, i.e. whether it is 0s followed by 1s or the other way around.
-In neuroscience, such a neuron is called a complex cell, and is a standard basic cell type.
+This means we want our neuron to be _selective_ for the presence of a vertical edge, as opposed to other orientations, but _invariant_ to the phase of the edge, i.e. whether it is 0s followed by 1s or the other way around.
+In neuroscience, such a neuron is called a complex cell and is a common basic cell type.
 
 It was precisely the [discovery](https://www.brains-explained.com/how-hubel-and-wiesel-revolutionized-neuroscience/) of analogous neuron types in the visual cortex of cats that lead scientists to hypothesize that the brain is wired up to perform computations on signals coming from the world.
 This discovery occured in the late 1950s and created a revolution in neuroscience research.
 About twenty years later a scientist named Dr. Kunihiko Fukushima proposed a computer model to emulate the discovered behavior.
-His invention, called the [neocognitron](http://www.scholarpedia.org/article/Neocognitron), was one of the earliest ancestors of the modern day deep neural network.
+His invention, called the [neocognitron](http://www.scholarpedia.org/article/Neocognitron), was one of the earliest ancestors of modern day deep neural networks.
 One of the defining elements of the neocognitron were "C-cells", which were designed to be selective for features in the world, but invariant to their position.
 In modern artificial neural networks, we often label neurons by what they are most selective for, such as [snout or car detectors](https://distill.pub/2017/feature-visualization/), and we explicitly engineer components that create invariance, such as [pooling](https://ai.plainenglish.io/pooling-layer-beginner-to-intermediate-fa0dbdce80eb).
-Today scientists have a variety of methods to measure and quantify selectivity and invariance in both biological as well as artificial neurons.
+Today, scientists have a variety of methods to measure and quantify selectivity and invariance in both biological as well as artificial neurons.
 These measurements are extremely important for developing an understanding of how we process information, and are often used to categorize neurons into groups.
 This blog post aims to explain one such method, which is primarily used in neuroscience and relies on characterizing the geometry of a neuron's _response surface_.
 
@@ -40,9 +40,9 @@ Lets assume that the target neuron will produce an output for any combination of
 Or, put another way, the target neuron is a function that maps a 100-dimensional input to a single-dimensional (i.e. scalar) output.
 The neural response surface is a description of the neuron's output for all possible combinations of inputs.
 
-It is impossibly difficult to measure the entire response surface of a neuron, even in the case of simple artificial neural networks.
+It is impossibly difficult to measure the entire response surface of a neuron, even in the case of modern artificial neural networks.
 However, if we assume that the response surface is relatively smooth and regular, then we can still learn a lot about the neuron by looking at cross sections, which are much more tractible to estimate.
-This presents our next challenge, which is choosing how to take a cross section.
+This presents our next challenge of choosing which cross sections to take.
 Just like cutting an onion in half, one type of cross section will reveal very different structure from another one.
 
 ![onions]
@@ -61,7 +61,7 @@ If individual pixels are allowed to be numbers between 0 and 1 (like in a graysc
 Just to really drive this idea home -- every single point in the 100-dimensional cube is also an image.
 The next figure has an illustration of a 3D image space with such a 2D cross section drawn in light gray.
 If we draw arrows starting from a single origin such that the tips reach two image points, then we can compute the angle between the arrows to determine how similar those images are.
-Finally, if two image arrows are perpendicular then they are maximally dissimilar from each other.
+If two image arrows are perpendicular, then they are maximally dissimilar from each other.
 
 ![2d-plane]
 {: style="text-align: center; font-size:11pt"}
@@ -103,7 +103,7 @@ The origin for all of the cross sections we consider here will be a zero-contras
 
 In addition to constraining our input space to be coplanar, we are also going to constrain our output space to simplify the analysis.
 Specifically, we are going to look at the curvature of the _iso-response contours_ of the neuron.
-These contours are connected points that are all on the cross section and all produce the same output from the neuron.
+These contours are connected points that all produce the same (hense "iso") output from the neuron and they all exist on the cross section.
 To see the iso-response contours, we will compute the neuron’s output (i.e. _activity_) for all of the cross section images and then recolor the points according to the activity.
 
 As I said before, we want to pick a cross section that is relevant for our neuron.
