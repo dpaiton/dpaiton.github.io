@@ -8,7 +8,7 @@ tags:
   - deep net interpretability
 ---
 
-Scientists have long summarized neurons by describing the relationship between their inputs and outputs. Here I describe a technique that allows us to go beyond previous approaches to succinctly describe important and complex neural behavior.
+Scientists have long summarized neurons in terms of the relationship between their inputs and outputs. Here I describe a technique that allows us to go beyond previous approaches to succinctly describe important and complex neural behavior.
 ------
 
 ![curvatures]
@@ -89,14 +89,14 @@ The next figure illustrates how each point in the grid can be reshaped to be vis
 A few of the points around the edges are displayed as images.
 Notice how these images have some structure to them and are systematic in how they look.
 For any given cross section, all of the images are [coplanar](https://en.wikipedia.org/wiki/coplanarity), which is to say that they can all be described as a [linear combination](https://en.wikipedia.org/wiki/Linear_combination) of two exemplar images.
+This idea of linearity is also illustrated in the figure below in that all of the corner images can be constructed by adding two of the center images.
 
 
 ![points-to-images]
 {: style="text-align: center; font-size:11pt"}
 
 **fig. 3**
-We discretize an image cross section into a two-dimensional grid and collect the points to define a dataset
-of images.
+We discretize a cross section of the input space into a two-dimensional grid and collect the points to define a dataset of images.
 The black arrows are perpendicular vectors that define the cross section.
 The origin for all of the cross sections we consider here will be a zero-contrast image, in other words a uniform gray image.
 {: style="text-align: center; font-size:11pt"}
@@ -104,13 +104,13 @@ The origin for all of the cross sections we consider here will be a zero-contras
 In addition to constraining our input space to be coplanar, we are also going to constrain our output space to simplify the analysis.
 Specifically, we are going to look at the curvature of the _iso-response contours_ of the neuron.
 These contours are connected points that all produce the same (hense "iso") output from the neuron and they all exist on the cross section.
-To see the iso-response contours, we will compute the neuron’s output (i.e. _activity_) for all of the cross section images and then recolor the points according to the activity.
+To see the iso-response contours, we will compute the neuron’s _activity_ (i.e. its output) for all of the cross section images and then recolor the points according to the activity.
 
 As I said before, we want to pick a cross section that is relevant for our neuron.
 To do this we define one of the two cross section axes as the neuron's _maximally exciting image (MEI)_, which is an image that was optimized to look like the feature in the world that is most interesting to the neuron.
 There are a lot of ways to find a neuron's MEI in neuroscience and in artificial neural network research, but for now let's leave aside how the image was produced and just assume it is representative of what the neuron likes most.
-Going forward, we will represent the MEI with the symbol $$\Phi_{k}$$, where the $$k$$ tells us it is the MEI for the $$k$$th neuron in our assembly.
-For now the other axis can be any random perpendicular (i.e. _[orthogonal](https://en.wikipedia.org/wiki/Orthogonality)_) image, but we will choose more specific orthogonal images later.
+Going forward, we will represent the MEI with the symbol [$$\Phi_{k}$$](https://en.wikipedia.org/wiki/Phi), where the $$k$$ tells us it is the MEI for the $$k$$th neuron in our assembly.
+For now the other axis can be any random _[orthogonal](https://en.wikipedia.org/wiki/Orthogonality)_ (i.e. perpendicular) image, but we will choose more specific orthogonal images later.
 
 ![choosing-the-right-plane]
 {: style="text-align: center; font-size:11pt"}
@@ -130,7 +130,7 @@ Here's what it would look like for a simple linear neuron:
 **fig. 5**
 The iso-response contours for a linear neuron are straight and orthogonal to the neuron's MEI, $$\Phi_{k}$$.
 In this image, $$\Phi_{j}$$ indicates the MEI for some other neuron and $$\nu$$ indicates the chosen orthogonal axis.
-The iso-response contours will be straight regardless of the chosen direction for $$\nu$$.
+For a linear neuron, the iso-response contours will be straight regardless of the chosen direction for $$\nu$$.
 The color indicates the output activity of neuron $$k$$, where blue is low and yellow is high.
 {: style="text-align: center; font-size:11pt"}
 
@@ -155,7 +155,7 @@ between the lines.
 This is true for all types of pointwise nonlinearities, which we demonstrate by also including a sigmoid nonlinearity.
 
 ### Straight vs. curved contours
-Biological neurons tend to have more complicated iso-response contours, which are sometimes also found in more sophisticated artificial neural network architectures.
+Biological neurons tend to have more complicated iso-response contours, as well as some more sophisticated artificial neural network neurons.
 Specifically, the contours tend to have _curvature_ in the sense that they bend towards or away from the origin.
 Since linear neurons produce straight contours, it is reasonable to think about curvature as indicating a deviation from linearity -- more curvy contours indicate less linear functions.
 Additionally, let's differentiate between outward curvature, which means it's bending away from the origin, and inward curvature, which means it is bending towards the origin.
@@ -192,7 +192,7 @@ To start we will look at the "up" perturbation condition for straight and outwar
 **fig. 8**
 The "up" perturbation direction reveals an important difference between neurons with straight contours and neurons with outward curved contours.
 The orthogonal, $$\nu_{\text{noise}}$$ axis is chosen to be a noisy image.
-The line plot on the right indicates the response of the neuron (vertical axis) for each image type (horizontal axis).
+The line plots in the middle indicate the response of the neuron (vertical axis) for each image type (horizontal axis).
 Each perturbation point is displayed on the right.
 {: style="text-align: center; font-size:11pt"}
 
@@ -239,8 +239,9 @@ This means that the bottom cell has phase _invariance_, while the top cell does 
 
 **fig. 9**
 The "contour" perturbation direction reveals invariance for neurons with inward-bending iso-response contours.
-Perturbing along the top neuron's iso-response contour will make the image look less like $$\Phi_{k}$$ and more like $$\nu_{\text{phase}}$$, but not by actually shifting the phase of the edge.
+Perturbing along the top neuron's iso-response contour will make the image look less like a linear combination of $$\Phi_{k}$$ and $$\nu_{\text{phase}}$$ instead of a phase shift.
 However, perturbing along the bottom neuron's contour results in a phase shift.
+This is easier to see the farther along the contour we perturb, so we used larger perturbations than those shown in figure 7.
 {: style="text-align: center; font-size:11pt"}
 
 ## Wrap up
