@@ -8,7 +8,7 @@ tags:
   - deep net interpretability
 ---
 
-Scientists have long summarized neurons by describing the relationship between their inputs and outputs. Here I describe a new technique that allows us to go beyond previous approaches to succinctly describe important and complex neural behavior.
+Scientists have long summarized neurons by describing the relationship between their inputs and outputs. Here I describe a technique that allows us to go beyond previous approaches to succinctly describe important and complex neural behavior.
 ------
 
 ![curvatures]
