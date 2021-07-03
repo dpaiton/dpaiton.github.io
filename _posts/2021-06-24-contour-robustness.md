@@ -8,10 +8,10 @@ tags:
   - differential geometry
 ---
 
-Defending against adversarial attacks is critical for modern AI applications. Here I describe how we can use response geometry to predict a neuron's suceptibility to attacks.
+Defending against adversarial attacks is critical for modern AI applications. Here I describe how we can use response geometry to predict a neuron's susceptibility to attacks.
 ------
 
-This writeup is builds on my [previous post]({{site.url}}/posts/2021/05/response-geometry/) about using the curvature of a neuron's response surface to understand its behavior.
+This writeup builds on my [previous post]({{site.url}}/posts/2021/05/response-geometry/) about using the curvature of a neuron's response surface to understand its behavior.
 If that idea is unfamiliar to you, then I recommend reading that post before this one.
 
 ### Adversarial examples
@@ -23,7 +23,7 @@ The images in the middle column are adversarial perturbations that can be added 
 All of the adversarial images are labeled as "ostrich" by the network.
 The perturbations have to be magnified to allow you to see what they look like because their original scale is at the lower bound of what a typical computer image can convey.<a href="{{page.url}}#dagger"><sup>†</sup></a>
 Importantly, these attacks do not just apply to images.
-They have been demonstrated to work pretty much anywhere that DNNs are useful, and they almost always seem innocuous or are imperceptible for a person.
+They have been demonstrated to work pretty much anywhere that DNNs are useful, and they almost always seem innocuous or are imperceptible to a person.
 Successful demonstrations include tricking [text analyzers](https://arxiv.org/pdf/1804.07998.pdf) that are used for product review summaries, social media feeds, and search result rankings; tricking smart home devices to [execute a command](https://arxiv.org/abs/1801.01944); and tricking a self-driving car to [mistake a stop sign for a yield sign](https://arxiv.org/abs/1707.08945).
 
 ![adversarial-images]
@@ -36,11 +36,11 @@ Natural images (left column) can be modified by small perturbations (middle colu
 To be more precise, _adversarial perturbations_ are modifications of the input of a network that are small in magnitude, but cause a big enough shift in its output to change its behavior.
 While it is not a hard requirement, they are also often semantically unrelated to the new output of the network -- for example the "ostrich" perturbation is not recognizable as an ostrich.
 These two criteria, small size and uninterpretable semantic quality, are what makes them so interesting to researchers.
-There are adversarial perturbations that could trick a classifier in an uninteresting way, such as adding a horizontal stroke to a "0" to trick a classifer into calling it an "8", or [putting wheels on a canoe](https://vikebike.com/vikebike01_FullRes.jpg) to trick the classifier into thinking it is a bicycle (or is it a bycicle disguized as a canoe?).
+There are adversarial perturbations that could trick a classifier in an uninteresting way, such as adding a horizontal stroke to a "0" to trick a classifier into calling it an "8", or [putting wheels on a canoe](https://vikebike.com/vikebike01_FullRes.jpg) to trick the classifier into thinking it is a bicycle (or is it a bicycle disguised as a canoe?).
 If these obvious attacks were what was demonstrated by Dr. Szegedy and colleagues then few other researchers would have paid attention.
 Unfortunately, we do not have a good way to measure "semantic quality," so the research community can only use the average size of the perturbations to quantify _adversarial robustness_, which indicates how much a network can handle adversarial attacks.
 However, they do often also show examples of perturbed inputs to allow readers to judge for themselves whether the semantic content is reasonable given the original and new network outputs.
-Now that we have defined the adversarial attacks and robustness we can better understand how such attacks are conducted.
+Now that we have defined the adversarial attacks and robustness we can better understand how such attacks are created.
 
 ### Following gradients
 There are many methods for constructing adversarial perturbations and they can roughly be categorized by how much access they have to the network they are attacking.
@@ -69,14 +69,14 @@ That is to say that the _gradient_ indicates how much the function's output chan
 {: style="text-align: center; font-size:11pt"}
 
 **fig. 3**
-A path that is orthogonal to the iso-elevation lines in a topographic map is the fastest way to change altitude.
+A path that is orthogonal to the iso-elevation lines on a topographic map is the fastest way to change altitude.
 {: style="text-align: center; font-size:11pt"}
 
-All methods for finding adversarial examples are derived from this same guiding principal, which is to use gradients (or approximations thereof) to determine what direction to go.
+All methods for finding adversarial examples are derived from this same guiding principle, which is to use gradients (or approximations thereof) to determine what direction to go.
 I'll explain in the wrap-up that this is considered a _local_ perspective on finding an optimal path.
 In my [previous post]({{site.url}}/posts/2021/05/response-geometry/) on iso-response contours, I explained how images can be thought of as arrows reaching to points in a high-dimensional space.
 Along this line of reasoning, an adversarial perturbation can be drawn as an arrow extending from the original input with some direction and magnitude.
-This the same concept that we are using in figure 3: each red arrow starts at some position and ends at some other position.
+This is the same concept that we are using in figure 3: each red arrow starts at some position and ends at some other position.
 And just like each point on that map has an analogous location in the world (in this case Hawaii), the points in our neuron iso-response contour figures have analogous images.
 To determine the input perturbation that maximally changes a function's output, we choose arrow directions that are orthogonal to the function's iso-response contours.
 Usually that function is an entire neural network, but the explanation also applies to single neurons.
@@ -95,7 +95,7 @@ The next figure shows the iso-response contours for these models as well as the 
 {: style="text-align: center; font-size:11pt"}
 
 **fig. 4**
-Two neurons are simulated and their iso-response contours are shown. The numbers above the resopnse indicates the neuron's activation in arbitrary units. The little gray arrows indicate the maximal gradient direction for increasing the neuron's activation. The longer colored arrow indicates an optimal path taken from the point indicated by the black dot.
+Two neurons are simulated and their iso-response contours are shown. The numbers above the response indicate the neuron's activation in arbitrary units. The little gray arrows indicate the maximal gradient direction for increasing the neuron's activation. The longer colored arrow indicates an optimal path taken from the point indicated by the black dot.
 {: style="text-align: center; font-size:11pt"}
 
 The longer colored arrows in the above figure indicate an optimal adversarial perturbation from a given starting point.
@@ -108,8 +108,8 @@ All of this matters when we think about an adversarial attack on the neuron.
 For both neurons, as we take steps in the adversarial direction, the output will look more and more like the neuron's MEI.
 However, this will happen faster for the neuron with the curved response contours, to the point where the input eventually just ends up looking exactly like the MEI.
 This means that the optimal perturbation direction for neurons with curved response contours is more aligned with their MEIs than for neurons with straight contours.
-Thus, if we assume that neurons are interested in semantically relevant features, then we hypothesize that the resulting adversarial perturbations are going to be more semantically relevant if the neurons with curved response contours.
-And as I discussed earlier, if we modify a picture of the number "0" to look more like an "8," then we should not be too surprised if a neuron that has an MEI that looks like an "8" to get more excited.
+Thus, if we assume that neurons are interested in semantically relevant features, then we hypothesize that the resulting adversarial perturbations are going to be more semantically relevant if the neurons have curved response contours.
+And as I discussed earlier, if we modify a picture of the number "0" to look more like an "8," then we should not be too surprised if a neuron that has an MEI that looks like an "8" gets more excited.
 
 It turns out that the curved contours can result in larger overall perturbation magnitudes when we have a network of these neurons as well.
 This is because an ensemble of neurons with bent contours will constrain the adversary, thus limiting its perturbation options.
@@ -130,7 +130,7 @@ This means an adversary will have fewer options to choose from if it wishes to i
 
 ### Wrap up
 At a high level, adversarial examples are one of many pieces of evidence supporting the idea that DNNs don’t [perceive the world like we do](https://www.nytimes.com/2018/11/05/opinion/artificial-intelligence-machine-learning.html).
-Given that there are other mismatches, exclusively solving adversarial succeptibility in DNNs is unlikely to align human and machine perception.
+Given that there are other mismatches, exclusively solving adversarial susceptibility in DNNs is unlikely to align human and machine perception.
 However, adversarial examples still serve as a valuable test of ideas in neural computation: if we have an idea to explain perception, then our model of the idea should be robust to adversarial attacks.
 
 In this post I explained how we can use the iso-response surface of a neuron to determine adversarial robustness.
@@ -141,7 +141,7 @@ Following this intuition, we hypothesized here that the outward bent contours wi
 I go into more detail in [my paper](/publication/2020-11-02-selectivity-and), where I present supporting experimental evidence using multi-layer neural networks.
 
 One detail that would be remiss of me to ignore is the spacing between the iso-response contours.
-You might have noticed that the bent and straight contorus in figure 4 were (approximately) equally spaced.
+You might have noticed that the bent and straight contours in figure 4 were (approximately) equally spaced.
 The optimal adversarial perturbation direction at any given point is indeed orthogonal to these contours.
 However, if the spacing is not guaranteed to be equal then there may be a suboptimal direction to take _at that moment_ that ultimately achieves the goal with fewer steps.
 If you wish to climb a mountain in as few steps as possible, for example, you might need to walk in a sub-optimal direction for a little while to get to a cliff face that will let you climb at the fastest rate.
@@ -149,8 +149,8 @@ This distinction is subtle, but important when we are trying to build defenses a
 The difference I'm describing is between a _local_ and a _global_ optimization process.
 Importantly, though, a global perspective, such as knowing that there is a cliff on the other side of some valley, is rare when attacking neural networks because of the high dimensionality of the inputs.
 
-Thus, iso-response contour _curvature_ provides part of the story of adversarial suceptiblity, and iso-response contour _spacing_ provides another part.
-No one has provided a complete picture of adversarial volnerability using iso-response geometry, and so we do not know if there are more aspects to consider.
+Thus, iso-response contour _curvature_ provides part of the story of adversarial susceptibility, and iso-response contour _spacing_ provides another part.
+No one has provided a complete picture of adversarial vulnerability using iso-response geometry, and so we do not know if there are more aspects to consider.
 However, there has been some [excellent progress](https://infoscience.epfl.ch/record/229872/files/spm_preprint.pdf) recently.
 Hopefully this post increased your understanding and demonstrated yet another way that the geometry of a neuron's response surface can teach us about how that neuron processes its inputs.
 
