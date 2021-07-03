@@ -2,7 +2,7 @@
 title: 'The sparse manifold transform'
 collection: publications
 permalink: /publication/2018-06-23-the-sparse
-excerpt: 'A hierarchical sparse coding model that decomposes scenes into consituent parts and linearizes temporal trajectories of natural videos.'
+excerpt: 'A hierarchical sparse coding model that decomposes scenes into constituent parts and linearizes temporal trajectories of natural videos.'
 date: 2018-06-23
 venue: 'Neural Information Processing Systems'
 ---

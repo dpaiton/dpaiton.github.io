@@ -2,7 +2,7 @@
 title: 'A deconvolutional competitive algorithm for building sparse hierarchical representations'
 collection: publications
 permalink: /publication/2016-05-24-a-deconvolutional
-excerpt: 'A heirarchical sparse coding network that learns bandpass decompositions of natural images.'
+excerpt: 'A hierarchical sparse coding network that learns bandpass decompositions of natural images.'
 date: 2016-05-24
 venue: 'Proceedings of the 9th EAI International Conference on Bio-inspired Information and Communications Technologies'
 ---
