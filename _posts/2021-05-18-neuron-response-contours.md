@@ -22,7 +22,7 @@ To encode such a world, our brain might want to have a "vertical edge detector" 
 This means we want our neuron to be _selective_ for the presence of a vertical edge, as opposed to other orientations, but _invariant_ to the phase of the edge, i.e. whether it is 0s followed by 1s or the other way around.
 In neuroscience, such a neuron is called a complex cell and is a common basic cell type.
 
-It was precisely the [discovery](https://www.brains-explained.com/how-hubel-and-wiesel-revolutionized-neuroscience/) of analogous neuron types in the visual cortex of cats that lead scientists to hypothesize that the brain is wired up to perform computations on signals coming from the world.
+It was precisely the [discovery](https://www.brains-explained.com/how-hubel-and-wiesel-revolutionized-neuroscience/) of analogous neuron types in the visual cortex of cats that led scientists to hypothesize that the brain is wired up to perform computations on signals coming from the world.
 This discovery occured in the late 1950s and created a revolution in neuroscience research.
 About twenty years later a scientist named Dr. Kunihiko Fukushima proposed a computer model to emulate the discovered behavior.
 His invention, called the [neocognitron](http://www.scholarpedia.org/article/Neocognitron), was one of the earliest ancestors of modern day deep neural networks.
@@ -37,7 +37,7 @@ First, an obvious statement: neurons receive signals as input and produce signal
 Let's assume that some target neuron receives input from 100 other neurons, and produces a single output that might be read by any number of downstream neurons.
 Going forward, we will define the _target neuron_ as the neuron that we are currently interested in studying, and we will indicate it mathematically with the index $$k$$.
 Let's assume that the target neuron will produce an output for any combination of signals coming from the 100 input neurons.
-Or, put another way, the target neuron is a function that maps a 100-dimensional input to a single-dimensional (i.e. scalar) output.
+Or, put another way, the target neuron is a function that maps a 100-dimensional input to a _scalar_ (i.e. a single number, which would then be single-dimensional) output.
 The neural response surface is a description of the neuron's output for all possible combinations of inputs.
 
 It is impossibly difficult to measure the entire response surface of a neuron, even in the case of modern artificial neural networks.
@@ -52,7 +52,7 @@ Just like cutting an onion in half, one type of cross section will reveal a diff
 Taking cross sections of complicated surfaces can reveal structure, but the structure looks different depending on the orientation of the cross section.
 {: style="text-align: center; font-size:11pt"}
 
-Instead of input from other neurons, let's consider a neuron that receives images as input and produces a scalar (i.e. single number) output.
+Instead of input from other neurons, let's consider a neuron that receives images as input and produces a scalar output.
 Individual input images can also be thought of as points in a high dimensional space.
 For example, a 10-by-10 image thumbnail has 10\*10=100 pixels.
 Therefore, we can equivalently think of the image as a point in a 100-dimensional space.
@@ -137,6 +137,7 @@ The color indicates the output activity of neuron $$k$$, where blue is low and y
 Notice how the lines are straight and orthogonal to $$\Phi_{k}$$.
 This will be true for any linear system, and it means that the neuron is insensitive to orthogonal perturbations away from it's preferred input.
 What happens if we apply a pointwise nonlinearity to our neuron's output?
+A _pointwise nonlienarity_ is a function that maps a single scalar to another scalar, and therefore a pointwise nonlinear neuron does not interact directly with its neighbors in a given layer.
 This is exactly the type of operation that is used in almost all standard deep neural networks: a linear operation followed by a pointwise nonlinearity.
 For example, in the next figure we include the _Rectified Linear Unit (ReLU)_ nonlinearity, which sets all values below some threshold to zero and then acts as an identity mapping (i.e. output equals input) for all values above that same threshold.
 
