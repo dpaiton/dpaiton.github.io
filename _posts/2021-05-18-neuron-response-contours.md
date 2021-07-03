@@ -8,7 +8,7 @@ tags:
   - deep net interpretability
 ---
 
-Scientists have long summarized neurons by describing the relationship between their inputs and outputs. Here I describe a new technique that allows us to go beyond previous approaches to succicinctly describe important and complex neural behavior.
+Scientists have long summarized neurons by describing the relationship between their inputs and outputs. Here I describe a new technique that allows us to go beyond previous approaches to succinctly describe important and complex neural behavior.
 ------
 
 ![curvatures]
@@ -18,7 +18,7 @@ An important computational goal of the early visual pathway, from the retina to 
 In order for a V1 neuron’s output to be decoded by downstream brain areas, it must reliably modulate its response with respect to certain variations in the visual world and remain constant for others.
 For example, let's suppose we live in a binary edge world, where all scenes are made up of combinations of oriented edges.
 In such a world, images of vertical edges would occur when a column of 1s immediately precedes a column of 0s, or vice versa.
-To encode such a world, our brain might want to have a 'vertical edge detector' neuron that signals the presence of any vertical edges.
+To encode such a world, our brain might want to have a "vertical edge detector" neuron that signals the presence of any vertical edges.
 This means we want our neuron to be _selective_ for the presence of a vertical edge, as opposed to other orientations, but _invariant_ to the phase of the edge, i.e. whether it is 0s followed by 1s or the other way around.
 In neuroscience, such a neuron is called a complex cell and is a common basic cell type.
 
@@ -35,15 +35,15 @@ This blog post aims to explain one such method, which is primarily used in neuro
 ### The neural response surface
 First, an obvious statement: neurons receive signals as input and produce signals as output.
 Let's assume that some target neuron receives input from 100 other neurons, and produces a single output that might be read by any number of downstream neurons.
-Going forward, we will define the _target neuron_ as the neuron that we are currently interested in studying, and we will indiciate it mathematically with the index $$k$$.
-Lets assume that the target neuron will produce an output for any combination of signals coming from the 100 input neurons.
+Going forward, we will define the _target neuron_ as the neuron that we are currently interested in studying, and we will indicate it mathematically with the index $$k$$.
+Let's assume that the target neuron will produce an output for any combination of signals coming from the 100 input neurons.
 Or, put another way, the target neuron is a function that maps a 100-dimensional input to a single-dimensional (i.e. scalar) output.
 The neural response surface is a description of the neuron's output for all possible combinations of inputs.
 
 It is impossibly difficult to measure the entire response surface of a neuron, even in the case of modern artificial neural networks.
-However, if we assume that the response surface is relatively smooth and regular, then we can still learn a lot about the neuron by looking at cross sections, which are much more tractible to estimate.
+However, if we assume that the response surface is relatively smooth and regular, then we can still learn a lot about the neuron by looking at cross sections, which are much more tractable to estimate.
 This presents our next challenge of choosing which cross sections to take.
-Just like cutting an onion in half, one type of cross section will reveal very different structure from another one.
+Just like cutting an onion in half, one type of cross section will reveal a different structure from another one.
 
 ![onions]
 {: style="text-align: center; font-size:11pt"}
@@ -57,7 +57,7 @@ Individual input images can also be thought of as points in a high dimensional s
 For example, a 10-by-10 image thumbnail has 10\*10=100 pixels.
 Therefore, we can equivalently think of the image as a point in a 100-dimensional space.
 Each dimension can be represented as an axis, where the position along the axis is the value of the pixel.
-If individual pixels are allowed to be numbers between 0 and 1 (like in a grayscale image, wehere 0 is black, 0.5 is gray, and 1 is white), then all allowable images exist in a 100-dimensional cube.
+If individual pixels are allowed to be numbers between 0 and 1 (like in a grayscale image, where 0 is black, 0.5 is gray, and 1 is white), then all allowable images exist in a 100-dimensional cube.
 Just to really drive this idea home -- every single point in the 100-dimensional cube is also an image.
 The next figure has an illustration of a 3D image space with such a 2D cross section drawn in light gray.
 If we draw arrows starting from a single origin such that the tips reach two image points, then we can compute the angle between the arrows to determine how similar those images are.
@@ -108,8 +108,8 @@ To see the iso-response contours, we will compute the neuron’s output (i.e. _a
 
 As I said before, we want to pick a cross section that is relevant for our neuron.
 To do this we define one of the two cross section axes as the neuron's _maximally exciting image (MEI)_, which is an image that was optimized to look like the feature in the world that is most interesting to the neuron.
-There are a lot of ways to find a neuron's MEI in neuroscience and in artificial neural network research, but for now let's leave asside how the image was produced and just assume it is representative of what the neuron likes most.
-Going forward, we will represent the MEI with the symbol $$\Phi_{k}$$ (read: [phi](https://en.wikipedia.org/wiki/Phi), sounds like "fi" in "financial"), where the $$k$$ tells us it is the MEI for the $$k$$th neuron in our assembly.
+There are a lot of ways to find a neuron's MEI in neuroscience and in artificial neural network research, but for now let's leave aside how the image was produced and just assume it is representative of what the neuron likes most.
+Going forward, we will represent the MEI with the symbol $$\Phi_{k}$$, where the $$k$$ tells us it is the MEI for the $$k$$th neuron in our assembly.
 For now the other axis can be any random perpendicular (i.e. _[orthogonal](https://en.wikipedia.org/wiki/Orthogonality)_) image, but we will choose more specific orthogonal images later.
 
 ![choosing-the-right-plane]
@@ -137,8 +137,8 @@ The color indicates the output activity of neuron $$k$$, where blue is low and y
 Notice how the lines are straight and orthogonal to $$\Phi_{k}$$.
 This will be true for any linear system, and it means that the neuron is insensitive to orthogonal perturbations away from it's preferred input.
 What happens if we apply a pointwise nonlinearity to our neuron's output?
-This is exactly the type of operation that is uesd in almost all standard deep neural networks: a linear operation followed by a pointwise nonlinearity.
-For example, in the next figure we include the _Rectified Linear Unit (ReLU)_ nonlinearity, which sets all values below some threshold to zero and then acts as an identity mapping (i.e. input equals output) for all values above that same threshold.
+This is exactly the type of operation that is used in almost all standard deep neural networks: a linear operation followed by a pointwise nonlinearity.
+For example, in the next figure we include the _Rectified Linear Unit (ReLU)_ nonlinearity, which sets all values below some threshold to zero and then acts as an identity mapping (i.e. output equals input) for all values above that same threshold.
 
 ![pointwise-neurons]
 {: style="text-align: center; font-size:11pt"}
@@ -161,45 +161,45 @@ Additionally, let's differentiate between outward curvature, which means it's be
 One reason curvature is significant is because it tells us about what variations in the world the neuron is selective for and invariant against.
 To understand that better, let's consider a few different types of coplanar perturbations that we can make from an input image.
 Here is a list of some options for a starting image along the horizontal axis:
-- Right, towards the neuron's MEI, then the target neuron's activity will grow
+- Right, toward the neuron's MEI, then the target neuron's activity will grow
 - Left, away from the neuron's MEI, then the target neuron's activity will shrink
 - Up, orthogonal to the neuron's MEI, then the target neuron's activity will change differently for each curvature type
-- Along the iso-response contour, then the target neuron's acitvity will not change
+- Along the iso-response contour, then the target neuron's activity will not change
 
 ![perturbation-directions]
 {: style="text-align: center; font-size:11pt"}
 
 **fig. 7**
-Visualizations of four out of many possible pertubation directions.
+Visualizations of four out of many possible perturbation directions.
 For each direction, assume we start with the image depicted by the square, then perturb to the pentagon, then again to the circle.
 Straight contours are indicated in shades of purple, outward bending in shades of red, and inward bending in shades of blue.
 Darker colors indicate higher neural activation.
 {: style="text-align: center; font-size:11pt"}
 
-For linear neuron & pointwise nonlienar neurons, the last two directions are equal.
+For linear neuron & pointwise nonlinear neurons, the last two directions are equal.
 But they are not equal for neurons with bent iso-response contours.
 What does this tell us?
 Each of the perturbation options above can be thought of as an experimental condition.
 We will look at the results from two such experiments to visualize the difference between straight and curved contours.
 
 ### Experiment 1: Noise perturbations
-To start we will look at the 'up' perturbation condition for straight and outward bending contours.
+To start we will look at the "up" perturbation condition for straight and outward bending contours.
 
 ![up-perturbation]
 {: style="text-align: center; font-size:11pt"}
 
 **fig. 8**
-The 'up' perturbation direction reveals an important difference between neurons with straight contours and neurons with outward curved contours.
+The "up" perturbation direction reveals an important difference between neurons with straight contours and neurons with outward curved contours.
 The orthogonal, $$\nu_{\text{noise}}$$ axis is chosen to be a noisy image.
 The line plot on the right indicates the response of the neuron (vertical axis) for each image type (horizontal axis).
 Each perturbation point is displayed on the right.
 {: style="text-align: center; font-size:11pt"}
 
-To start, we have two neurons with identical MEIs, but different curvature.
+To start, we have two neurons with identical MEIs, but different curvatures.
 The vertical axis that helps define our cross section, $$\nu_{\text{noise}}$$, is a random noise image.
-This means that an 'up' perturbation will result in the MEI looking more and more noisy.
+This means that an "up" perturbation will result in the MEI looking more and more noisy.
 Again let's consider the pointwise nonlinear neuron.
-What happens to the output if we take a fixed point on the $$\Phi_{k}$$ axis and then perturb orthognally in the up direction?
+What happens to the output if we take a fixed point on the $$\Phi_{k}$$ axis and then perturb orthogonally in the up direction?
 Nothing; as expected, the response is flat.
 However, the neuron with outward curvature decreases its output, $$a_{k}$$, as we perturb "up" in the $$\nu_{\text{noise}}$$ direction.
 We call this _response attenuation_.
@@ -227,7 +227,7 @@ This is a continuous and non-linear process.
 If we look at the images that lie along evenly spaced intervals of the contours we can see a clear difference between the two neuron types.
 The perturbations for the top neuron have similar behavior as in the first experiment.
 With increasing perturbations, the image will look less like $$\Phi_{k}$$ and more like $$\nu_{\text{phase}}$$.
-However, this transition is _linear_, which means you will see both phases super-imposed on top of each other.
+However, this transition is _linear_, which means you will see both phases superimposed on top of each other.
 It is not actually shifting the phase of the edge.
 The perturbations for the bottom neuron, on the other hand, result in a continuous phase shift.
 By definition, since these images lie along the iso-response contour, the output of the neuron is equal for all of them.
@@ -237,7 +237,7 @@ This means that the bottom cell has phase _invariance_, while the top cell does 
 {: style="text-align: center; font-size:11pt"}
 
 **fig. 9**
-The 'contour' perturbation direction reveals invariance for neurons with inward-bending iso-response contours.
+The "contour" perturbation direction reveals invariance for neurons with inward-bending iso-response contours.
 Perturbing along the top neuron's iso-response contour will make the image look less like $$\Phi_{k}$$ and more like $$\nu_{\text{phase}}$$, but not by actually shifting the phase of the edge.
 However, perturbing along the bottom neuron's contour results in a phase shift.
 {: style="text-align: center; font-size:11pt"}
@@ -253,7 +253,7 @@ In summary, the big takeaways are:
 - inward-curved contours indicate invariance, which is a property of biological complex cells
 
 There is much more that we can learn by looking at the curvature of the iso-response surfaces, which I will discuss in upcoming posts.
-In the interum, if you are eager to read more, check out [my own paper](/publication/2020-11-02-selectivity-and), as well as the work of [James Golden et al. (PDF)](http://jamesgolden.net/wp-content/uploads/2017/10/golden_vilankar_wu_field_conjectures_nonlinear_geometry_vision_research_2016_preprint.pdf).
+In the interim, if you are eager to read more, check out [my own paper](/publication/2020-11-02-selectivity-and), as well as the work of [James Golden et al. (PDF)](http://jamesgolden.net/wp-content/uploads/2017/10/golden_vilankar_wu_field_conjectures_nonlinear_geometry_vision_research_2016_preprint.pdf).
 
 
 [curvatures]: /images/response-geometry/curvatures.png
