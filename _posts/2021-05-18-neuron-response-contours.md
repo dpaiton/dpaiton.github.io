@@ -137,7 +137,7 @@ The color indicates the output activity of neuron $$k$$, where blue is low and y
 Notice how the lines are straight and orthogonal to $$\Phi_{k}$$.
 This will be true for any linear system, and it means that the neuron is insensitive to orthogonal perturbations away from it's preferred input.
 What happens if we apply a pointwise nonlinearity to our neuron's output?
-A _pointwise nonlienarity_ is a function that maps a single scalar to another scalar, and therefore a pointwise nonlinear neuron does not interact directly with its neighbors in a given layer.
+A _pointwise nonlinearity_ is a function that maps a single scalar to another scalar, and therefore a pointwise nonlinear neuron does not interact directly with its neighbors in a given layer.
 This is exactly the type of operation that is used in almost all standard deep neural networks: a linear operation followed by a pointwise nonlinearity.
 For example, in the next figure we include the _Rectified Linear Unit (ReLU)_ nonlinearity, which sets all values below some threshold to zero and then acts as an identity mapping (i.e. output equals input) for all values above that same threshold.
 
