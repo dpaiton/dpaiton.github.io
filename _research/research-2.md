@@ -6,16 +6,16 @@ excerpt: "Proposing candidate models for biological scene representation<br/>
 collection: portfolio
 ---
 
-A long-standing interest of mine is to develop hierarchical probablistic models of natural scenes.
+A long-standing interest of mine is to develop hierarchical probabilistic models of natural scenes.
 While representing real-world scenes in terms of true probabilities is a mathematician's nightmare, approximating such a representation has proven to be an extremely effective way to model scenes in an efficient and robust way.
 Perhaps just as importantly, so far it has shown a high degree of correspondence with what we see in real brains.
 Most of my works so far have built on the Sparse Coding framework, which represents a leading candidate for computation in the early vision system of mammals.
 
 <strong>Nonlinear disentanglement with variational probabilistic neural networks</strong><br>
-Most recently, I lead a team to conduct a research project on understanding disentanglement in neural networks.
-The goal of disentanglment research is to learn an encoding function that can map inputs, such as images or videos, to the underlying factors that varied to produce those images, such as an object's position, identity, or orientation.
+Most recently, I led a team to conduct a research project on understanding disentanglement in neural networks.
+The goal of disentanglement research is to learn an encoding function that can map inputs, such as images or videos, to the underlying factors that varied to produce those images, such as an object's position, identity, or orientation.
 We used neural networks that approximate probabilistic inference to encode the images.
-You can find a short description with figures in our [tweet](https://twitter.com/bethgelab/status/1285944029084037121?s=20) or get all of the deatils in [the paper](https://openreview.net/forum?id=EbIDjBynYJ8).
+You can find a short description with figures in our [tweet](https://twitter.com/bethgelab/status/1285944029084037121?s=20) or get all of the details in [the paper](https://openreview.net/forum?id=EbIDjBynYJ8).
 
 <strong>A nonlinear, hierarchical subspace sparse coding network</strong><br>
 I also recently published an alternative hierarchical sparse coding model that learns to represent natural scenes in terms of subspaces.
@@ -25,7 +25,7 @@ You can learn more about it from [my talk](https://www.youtube-nocookie.com/embe
 
 <strong>The sparse manifold transform</strong><br>
 The Sparse Manifold Transform is an exciting development in hierarchical modeling of natural scenes that was developed by my colleague [Yubei Chen](https://redwood.berkeley.edu/people/yubei-chen/).
-The network is explicitly represents videos in terms of a hierarchy composable elements, and is heavily inspired by recent ideas in neuroscience about how the brain might represent scene information using smooth manifolds.
+The network explicitly represents videos in terms of a hierarchy of composable elements, and is heavily inspired by recent ideas in neuroscience about how the brain might represent scene information using smooth manifolds.
 I co-authored [the paper](https://papers.nips.cc/paper/2018/hash/8e19a39c36b8e5e3afd2a3b2692aea96-Abstract.html), which gives all of the details.
 
 <strong>Deep deconvolutional sparse coding for scene spatial frequency decomposition</strong><br>
