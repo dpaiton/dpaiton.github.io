@@ -254,8 +254,9 @@ In summary, the big takeaways are:
 - outward-curved contours indicate selectivity, and the amount of curvature will tell us how selective the neuron is
 - inward-curved contours indicate invariance, which is a property of biological complex cells
 
-There is much more that we can learn by looking at the curvature of the iso-response surfaces, which I will discuss in upcoming posts.
-In the interim, if you are eager to read more, check out [my own paper](/publication/2020-11-02-selectivity-and), as well as the work of [James Golden et al. (PDF)](http://jamesgolden.net/wp-content/uploads/2017/10/golden_vilankar_wu_field_conjectures_nonlinear_geometry_vision_research_2016_preprint.pdf).
+There is much more that we can learn by looking at the curvature of neuron iso-response surfaces.
+In my [next post]({{site.url}}/posts/2021/06/adversarial-robustness/), I use them to explain a concept in machine learning called _adversarial robustness_.
+If you are interested in digging into more details, check out my [paper on the subject](/publication/2020-11-02-selectivity-and), as well as the work of [James Golden et al. (PDF)](http://jamesgolden.net/wp-content/uploads/2017/10/golden_vilankar_wu_field_conjectures_nonlinear_geometry_vision_research_2016_preprint.pdf).
 
 
 [curvatures]: /images/response-geometry/curvatures.png
