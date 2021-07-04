@@ -241,7 +241,7 @@ This means that the bottom cell has phase _invariance_, while the top cell does 
 The "contour" perturbation direction reveals invariance for neurons with inward-bending iso-response contours.
 Perturbing along the top neuron's iso-response contour will make the image look less like a linear combination of $$\Phi_{k}$$ and $$\nu_{\text{phase}}$$ instead of a phase shift.
 However, perturbing along the bottom neuron's contour results in a phase shift.
-This is easier to see the farther along the contour we perturb, so we used larger perturbations than those shown in figure 7.
+This is easier to see the farther along the contour we perturb, so we used larger perturbations here than those shown in figure 7.
 {: style="text-align: center; font-size:11pt"}
 
 ## Wrap up
