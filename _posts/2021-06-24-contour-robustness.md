@@ -15,7 +15,7 @@ This writeup builds on my [previous post]({{site.url}}/posts/2021/05/response-ge
 If that idea is unfamiliar to you, then I recommend reading that post before this one.
 
 ### Adversarial examples
-Adversarial examples are a worst-case demonstration of an artificial neural network's (ANNs) inability to gracefully cope with shifts or distortions of their inputs.
+Adversarial examples are a worst-case demonstration of artificial neural networks' (ANNs) inability to gracefully cope with shifts or distortions of their inputs.
 To construct one, an adversary must modify, or _perturb_, the input in a very small but specific way such that the output of the ANN changes significantly.
 The figure below is adapted from an iconic example provided in one of the [first papers](https://arxiv.org/abs/1312.6199) demonstrating adversarial attacks on ANNs, authored by Dr. Christian Szegedy and colleagues.
 The original input images are in the left column and they belong to the categories "mantis" and "dog."
