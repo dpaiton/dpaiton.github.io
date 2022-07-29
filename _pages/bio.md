@@ -32,6 +32,5 @@ Dylan received his Bachelor of Science degree in Electrical Engineering from the
 He then worked as a post-baccalaureate researcher in Dr. Garrett Kenyon's group at Los Alamos National Lab, where he studied biophysical retina models and hierarchical sparse coding networks.
 He obtained his PhD in Vision Science from the University of California, Berkeley and was advised by Dr. Bruno Olshausen.
 For his PhD thesis he developed an analysis technique to explain selectivity and robustness properties of a sparse coding neural network.
-Currently, he is a Postdoctoral researcher in Dr. Matthias Bethge's lab at the University of Tübingen.
-He is extending his PhD thesis work to discover novel modes of invariance and selectivity in biological neurons.
-He is also supervising students working in the fields of disentanglement and adversarial robustness.
+He completed a Postdoctoral research post in Dr. Matthias Bethge's lab at the University of Tübingen, where he developed new methods to improve the interpretability of neural networks.
+Currently, Dylan is Head of Research at Element Finance.
