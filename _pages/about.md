@@ -11,7 +11,8 @@ redirect_from:
   - /about.html
 ---
 
-The following are recordings of talks I have given:
+This is my research website, which focuses on my work in theoretical neuroscience and machine learning.
+View the blog for more generally accessible explanations of the work, or you can watch these talk recordings for a more technical overview of some of my research interests.
 
 <br><strong>Subspace Locally Competitive Algorithms</strong><br>
 presented @ the Neurally Inspired Computational Elements conference.
